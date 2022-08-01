@@ -3,6 +3,7 @@
 # https://www.jianshu.com/p/eec0586409da
 # nest.js从入门到放弃:
 # https://www.jianshu.com/p/fb5d9293ffd2
+# 苏州丰禾信息科技有限整理
 # 步骤：
 # npm install --save @nestjs/typeorm typeorm postgres
 # npm install pg --save
