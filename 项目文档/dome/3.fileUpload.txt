@@ -1,0 +1,62 @@
+1.单文件上传:
+import { Controller, Get, Render, Post, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { createWriteStream } from 'fs';
+import { join } from 'path';
+
+@Controller('upload')
+export class UploadController {
+    @Post('doAdd')
+    @UseInterceptors(FileInterceptor('pic')) //pic对应 <input type="file" name="pic" id="">
+    doAdd(@Body() body,@UploadedFile() file){
+        // console.log(body);
+        // console.log(file);
+        let cws=createWriteStream(join(__dirname,'../../public/upload/',`${Date.now()}---${file.originalname}`))
+        cws.write(file.buffer);
+        return '上传图片成功';
+    }
+}
+ <form action="upload/doAdd" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="新闻标题">
+        <br>
+        <br>
+        <input type="file" name="pic" id="">
+        <br>
+        <input type="submit" value="提交">
+</form>
+
+2.多文件上传
+import { Controller, UseInterceptors, Get, Post, Render, Body, UploadedFiles } from '@nestjs/common';
+import { createWriteStream } from 'fs';
+import { FilesInterceptor } from '@nestjs/platform-express';
+import { join } from 'path';
+@Controller('uploadmany')
+export class UploadmanyController {
+    @Post('doAdd')
+    //注意此处是FileFieldsInterceptor代表多文件的name不同的拦截器
+    // @UseInterceptors(FileFieldsInterceptor([
+    //     { name: 'pic1', maxCount: 1 },
+    //     { name: 'pic2', maxCount: 1 }
+    // ]))
+
+    //注意此处是FilesInterceptor而上面是FileFieldsInterceptor
+    @UseInterceptors(FilesInterceptor('pic')) //多个文件name属性相同的情况下
+    doAdd(@Body() body, @UploadedFiles() files) {
+        for (const file of files) {
+            let cws = createWriteStream(join(__dirname, '../../public/upload/', `${Date.now()}---${file.originalname}`))
+            cws.write(file.buffer);
+        }
+        return '上传多个文件成功';
+    }
+}
+
+    <!-- 注意此处上传文件的enctype -->
+    <form action="uploadmany/doAdd" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="新闻标题">
+        <br>
+        <br>
+        <input type="file" name="pic" id="">
+        <input type="file" name="pic" id="">
+        <br>
+        <input type="submit" value="提交">
+    </form>

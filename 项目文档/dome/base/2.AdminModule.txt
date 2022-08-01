@@ -1,0 +1,13 @@
+import { Module } from '@nestjs/common';
+import { UserController } from './controller/user/user.controller';
+import { NewsService } from './service/news/news.service';
+import { ShareModule } from '../share/share.module';
+
+@Module({
+  imports:[ShareModule],
+  controllers: [UserController],
+  providers: [NewsService],
+})
+export class AdminModule {
+    
+}

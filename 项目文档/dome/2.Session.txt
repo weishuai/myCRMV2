@@ -1,0 +1,4 @@
+req.session.destroy(function(err) { /*销毁 session*/ })
+req.session.username='张三'; //设置 
+session req.session.username //获取 
+session req.session.cookie.maxAge=0; //重新设置 cookie 的过期时间

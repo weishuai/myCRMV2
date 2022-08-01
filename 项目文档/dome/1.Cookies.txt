@@ -1,0 +1,20 @@
+import { Controller, Get, Request, Response } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get('getCookies')
+  getCookies(@Request() req) {
+    return req.cookies.name;
+  }
+  @Get('')
+  setCookies(@Response() res) {
+    res.cookie('rememberme', '1', { maxAge: 900000, httpOnly: true });
+    res.cookie('name', 'tobi');
+    res.cookie('rememberme', '1');
+    //删除
+    res.cookie('rememberme', '', { expires: new Date(0) });
+  }
+}

@@ -1,0 +1,9 @@
+import { IsNotEmpty } from 'class-validator'
+class CreatePostDto{
+  @ApiModelProperty({description:"应用名称",example:'示例值'})
+  //**此处就是**
+  @IsNotEmpty({message:'我是没填写title属性的时候，返回的给前端的错误信息'})
+  title:string
+  @ApiModelProperty({description:"应用内容"})
+  content:string
+}

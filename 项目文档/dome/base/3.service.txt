@@ -1,0 +1,12 @@
+import { Controller, Get } from '@nestjs/common';
+import {BaseService} from '../../../share/service/base/base.service'
+
+@Controller('admin/user')
+export class UserController {
+    constructor(private readonly baseService:BaseService){}
+    @Get()
+    index(){
+        console.log(this.baseService.getData());
+        return "哈哈"
+    }   
+}
