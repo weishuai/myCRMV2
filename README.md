@@ -17,7 +17,7 @@
 # npm run start
 # npm run start:dev
 # npm run start:prod
-# cd /Volumes/软件/FHCRM/mycrm_api_v4
+# cd /Volumes/软件/FHCRM/mycrm_api_v6.0
 # yarn install
 # yarn build
 # yarn start
