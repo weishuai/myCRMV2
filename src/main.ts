@@ -1,6 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 ///import logger from "morgan";
+var log4js = require('log4js');
+var logger = log4js.getLogger();
+
 import { ValidationPipe } from '@nestjs/common';
 
 // Socket
@@ -20,7 +23,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   //开启一个全局验证管道
   app.useGlobalPipes(new ValidationPipe()) 
-  //app.use(logger("start:dev"));
+  //logger.('weishuaiok');
+  logger.info('weishuaiok');
   // DOESN'T WORK
   app.enableCors();
   // DOESN'T WORK
