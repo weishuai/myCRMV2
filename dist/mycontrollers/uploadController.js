@@ -18,19 +18,23 @@ const platform_express_1 = require("@nestjs/platform-express");
 const fs_1 = require("fs");
 const path_1 = require("path");
 let uploadController = class uploadController {
-    doAdd(body, file) {
-        const cws = (0, fs_1.createWriteStream)((0, path_1.join)(__dirname, '../../public/upload/', `${Date.now()}---${file.originalname}`));
+    doAdd(fhname, file) {
+        let originalname = file.originalname;
+        console.log("originalname" + originalname);
+        fhname = fhname + "." + originalname.split(".")[1];
+        console.log("fhname:" + fhname);
+        const cws = (0, fs_1.createWriteStream)((0, path_1.join)(__dirname, '../../public/upload/', `${fhname}`));
         cws.write(file.buffer);
         return '上传图片成功';
     }
 };
 __decorate([
-    (0, common_1.Post)('/doAdd'),
+    (0, common_1.Post)('/doAdd/:fhname'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('pic')),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, common_1.Param)('fhname')),
     __param(1, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], uploadController.prototype, "doAdd", null);
 uploadController = __decorate([

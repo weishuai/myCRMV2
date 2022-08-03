@@ -97,7 +97,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "getProductAllView", null);
 ProductController = __decorate([
-    (0, common_1.Controller)('/product')
+    (0, common_1.Controller)('/Product')
 ], ProductController);
 exports.ProductController = ProductController;
 //# sourceMappingURL=ProductController.js.map

@@ -6,22 +6,27 @@ import {
   Body,
   UseInterceptors,
   UploadedFile,
+  Param,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { createWriteStream } from 'fs';
 import { join } from 'path';
 @Controller('/upload')
 export class uploadController {
-  @Post('/doAdd')
+  @Post('/doAdd/:fhname')
   @UseInterceptors(FileInterceptor('pic')) //pic对应 <input type="file" name="pic" id="">
-  doAdd(@Body() body, @UploadedFile() file) {
-    // console.log(body);
-    // console.log(file);
+  doAdd(@Param('fhname') fhname: string, @UploadedFile() file) {
+     ///console.log(fhname);
+     let originalname=file.originalname;
+     console.log("originalname"+originalname);
+     fhname=fhname+"."+originalname.split(".")[1];
+     console.log("fhname:"+fhname);
+     //`${Date.now()}---${file.originalname}`,
     const cws = createWriteStream(
       join(
         __dirname,
         '../../public/upload/',
-        `${Date.now()}---${file.originalname}`,
+        `${fhname}`,
       ),
     );
     cws.write(file.buffer);

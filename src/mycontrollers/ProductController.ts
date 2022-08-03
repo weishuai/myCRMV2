@@ -12,7 +12,7 @@ import _ from 'lodash';
 import { ProductService } from '../myservices/ProductService';
 import { ProductSearchVo, ProductVo } from '../myvo/ProductVo';
 
-@Controller('/product')
+@Controller('/Product')
 export class ProductController {
   private productService = new ProductService();
 
