@@ -84,6 +84,38 @@ export class FHUserRepo {
     return raws;
   }
 
+
+
+  async getFHUserAll002(search:  FHUserSearchVo) {
+    const qb = getRepository(User).createQueryBuilder('user');
+    const fields: Record<string, string> = {
+      id: 'user.id',
+      email: 'user.email',
+      userName: 'user.user_name',
+      password: 'user.password',
+      app: 'user.app',
+      timezone: 'user.timezone',
+      mobileCountryCode: 'user.mobile_country_code',
+      mobileCallingCountryCode: 'user.mobile_calling_country_code',
+      mobileNumber: 'user.mobile_number',
+      avatar: 'user.avatar',
+      lastSignIn: 'user.last_sign_in',
+      createdAt: 'user.created_at',
+    };
+
+    selectFields(qb, fields);
+    qb.where('1=1');
+
+    console.info('44');
+
+    multiSearch(qb, ['user.user_name' ], search.search);
+    qb.orderBy('user.created_at', 'DESC');
+    const count = await qb.getCount();
+    const { skip, take } = skipAndTake(count, search);
+    const raws = await qb.offset(skip).limit(take).getRawMany();
+    return {'raws':raws,'count':count};
+  }
+
   async getFHUserAllView() {
     const qb = getRepository(User).createQueryBuilder('user');
     const fields: Record<string, string> = {

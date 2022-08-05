@@ -8,5 +8,9 @@ export declare class FHUserController {
     getFHUserById(Id: string): Promise<any>;
     getFHUser(search: FHUserSearchVo): Promise<any[]>;
     getFHUserAll(): Promise<any[]>;
+    getFHUserAll002(search: FHUserSearchVo): Promise<{
+        raws: any[];
+        count: number;
+    }>;
     getFHUserAllView(): Promise<any[]>;
 }

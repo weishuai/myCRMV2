@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FHUserController = void 0;
 const common_1 = require("@nestjs/common");
 const FHUserService_1 = require("../myservices/FHUserService");
+const FHUserVo_1 = require("../myvo/FHUserVo");
 let FHUserController = class FHUserController {
     constructor() {
         this.fhuserService = new FHUserService_1.FHUserService();
@@ -46,6 +47,9 @@ let FHUserController = class FHUserController {
     async getFHUserAll() {
         return this.fhuserService.getFHUserAll();
     }
+    async getFHUserAll002(search) {
+        return this.fhuserService.getFHUserAll002(search);
+    }
     async getFHUserAllView() {
         return this.fhuserService.getFHUserAllView();
     }
@@ -70,6 +74,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], FHUserController.prototype, "getFHUserAll", null);
+__decorate([
+    (0, common_1.Get)('/getFHUserAll002'),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [FHUserVo_1.FHUserSearchVo]),
+    __metadata("design:returntype", Promise)
+], FHUserController.prototype, "getFHUserAll002", null);
 FHUserController = __decorate([
     (0, common_1.Controller)('/FHUser')
 ], FHUserController);

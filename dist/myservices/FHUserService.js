@@ -27,6 +27,9 @@ class FHUserService {
     async getFHUserAll() {
         return this.fhuserRepo.getFHUserAll();
     }
+    async getFHUserAll002(search) {
+        return this.fhuserRepo.getFHUserAll002(search);
+    }
     async getFHUserAllView() {
         return this.fhuserRepo.getFHUserAllView();
     }

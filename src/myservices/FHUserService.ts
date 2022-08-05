@@ -39,6 +39,11 @@ export class FHUserService {
     return this.fhuserRepo.getFHUserAll();
   }
 
+  async getFHUserAll002(search:  FHUserSearchVo) {
+    return this.fhuserRepo.getFHUserAll002(search);
+  }
+
+
   async getFHUserAllView() {
     return this.fhuserRepo.getFHUserAllView();
   }

@@ -48,6 +48,12 @@ export class FHUserController {
   async getFHUserAll() {
     return this.fhuserService.getFHUserAll();
   }
+  @Get('/getFHUserAll002')
+  async getFHUserAll002(@Query() search: FHUserSearchVo) {
+    return this.fhuserService.getFHUserAll002(search);
+  }
+
+
   async getFHUserAllView() {
     return this.fhuserService.getFHUserAllView();
   }
