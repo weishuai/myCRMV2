@@ -33,7 +33,7 @@ export class CampaignsController {
     return this.campaignService.updateaCampaign(Id, userId, CampaignVo);
   }
 
-  @Get('/removeCampaign')
+  @Get('/removeCampaign/:Id')
   async removeCampaign(@Param('Id') Id: string) {
     return this.campaignService.removeCampaign([Id]);
   }

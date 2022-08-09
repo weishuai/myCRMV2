@@ -63,7 +63,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CampaignsController.prototype, "updateaCampaign", null);
 __decorate([
-    (0, common_1.Get)('/removeCampaign'),
+    (0, common_1.Get)('/removeCampaign/:Id'),
     __param(0, (0, common_1.Param)('Id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
