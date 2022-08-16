@@ -13,7 +13,12 @@ module.exports = {
   overrides: [
     {
       include: ['./node_modules'],
-      presets: ['@babel/preset-env', '@babel/preset-react'],
+      presets: [
+        '@babel/preset-env',
+        '@babel/preset-react',
+         ["env", { "modules": false ,"targets":{"node":"current"}}],
+         "stage-3"
+        ],
       plugins: [
         'transform-runtime',
         '@babel/plugin-transform-arrow-functions',

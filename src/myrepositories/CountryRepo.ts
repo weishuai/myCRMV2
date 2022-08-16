@@ -88,7 +88,7 @@ export class CountryRepo {
     qb.where('1=1');
     //andWhereEqual(qb, 'country', 'id', id);
     const res = await qb.getRawMany();
-    return res;
+    return {'fhok':res};
   }
 
   async getCountry(search: CountrySearchVo) {

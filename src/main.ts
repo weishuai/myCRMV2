@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 ///import logger from "morgan";
-var log4js = require('log4js');
-var logger = log4js.getLogger();
-
+import * as express from 'express';
+///import { Logger } from './myutils/log4js';
+//import { LoggerMiddleware } from './logger.middleware';
 import { ValidationPipe } from '@nestjs/common';
 
 // Socket
@@ -11,7 +11,9 @@ import { ValidationPipe } from '@nestjs/common';
 import "reflect-metadata"; 
 import {createSocketServer} from "socket-controllers";
 import {FHMessageController} from "./mycontrollers/FHMessageControllerv1";
- 
+//import { TransformInterceptor } from './filter/transform.interceptor';
+//import { HttpExceptionFilter } from './filter/http-exception.filter';
+//import { AllExceptionsFilter } from './filter/any-exception.filter';
 createSocketServer(3001, {
     controllers: [FHMessageController]
 });
@@ -21,10 +23,23 @@ async function bootstrap() {
   ///const app = await NestFactory.create(AppModule);
   //await app.listen(3009);
   const app = await NestFactory.create(AppModule, { cors: true });
-  //开启一个全局验证管道
+
+  //日志
+
+  // 开启一个全局验证管道
   app.useGlobalPipes(new ValidationPipe()) 
   //logger.('weishuaiok');
-  logger.info('weishuaiok');
+  //app.use(express.json()); // For parsing application/json
+  //app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+  // 监听所有的请求路由，并打印日志
+  ///app.use(Logger);
+  // 使用拦截器打印出参
+ //app.useGlobalInterceptors(new TransformInterceptor());
+ //app.setGlobalPrefix('nest-zero-to-one');
+  // 过滤处理 HTTP 异常
+  //app.useGlobalFilters(new HttpExceptionFilter());
+  //app.useGlobalFilters(new AllExceptionsFilter());
+  //Logger.info('weishuai');
   // DOESN'T WORK
   app.enableCors();
   // DOESN'T WORK
