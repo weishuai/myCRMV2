@@ -11,9 +11,9 @@ import { ValidationPipe } from '@nestjs/common';
 import "reflect-metadata"; 
 import {createSocketServer} from "socket-controllers";
 import {FHMessageController} from "./mycontrollers/FHMessageControllerv1";
-//import { TransformInterceptor } from './filter/transform.interceptor';
+import { TransformInterceptor } from './filter/transform.interceptor';
 //import { HttpExceptionFilter } from './filter/http-exception.filter';
-//import { AllExceptionsFilter } from './filter/any-exception.filter';
+import { AllExceptionsFilter } from './filter/any-exception.filter';
 createSocketServer(3001, {
     controllers: [FHMessageController]
 });
@@ -30,15 +30,16 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe()) 
   //logger.('weishuaiok');
   //app.use(express.json()); // For parsing application/json
-  //app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+  //app.use(express.urlencoded({ extended: true })); 
+  // For parsing application/x-www-form-urlencoded
   // 监听所有的请求路由，并打印日志
   ///app.use(Logger);
   // 使用拦截器打印出参
- //app.useGlobalInterceptors(new TransformInterceptor());
- //app.setGlobalPrefix('nest-zero-to-one');
+  //app.useGlobalInterceptors(new TransformInterceptor());
+  //app.setGlobalPrefix('nest-zero-to-one');
   // 过滤处理 HTTP 异常
   //app.useGlobalFilters(new HttpExceptionFilter());
-  //app.useGlobalFilters(new AllExceptionsFilter());
+  app.useGlobalFilters(new AllExceptionsFilter());
   //Logger.info('weishuai');
   // DOESN'T WORK
   app.enableCors();

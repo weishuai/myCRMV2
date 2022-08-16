@@ -15,7 +15,7 @@
      const request = ctx.getRequest();
  
      const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
-     /*
+ 
      const logFormat = ` <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
      Request original url: ${request.originalUrl}
      Method: ${request.method}
@@ -28,9 +28,8 @@
        statusCode: status,
        msg: `Service Error: ${exception}`,
      });
-    */
+    
 
-    /// Logger.error("1111");
    }
 
  }

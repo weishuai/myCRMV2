@@ -8,12 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AllExceptionsFilter = void 0;
 const common_1 = require("@nestjs/common");
+const log4js_1 = require("../myutils/log4js");
 let AllExceptionsFilter = class AllExceptionsFilter {
     catch(exception, host) {
         const ctx = host.switchToHttp();
         const response = ctx.getResponse();
         const request = ctx.getRequest();
         const status = exception instanceof common_1.HttpException ? exception.getStatus() : common_1.HttpStatus.INTERNAL_SERVER_ERROR;
+        const logFormat = ` <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     Request original url: ${request.originalUrl}
+     Method: ${request.method}
+     IP: ${request.ip}
+     Status code: ${status}
+     Response: ${exception} \n  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     `;
+        log4js_1.Logger.error(request);
+        response.status(status).json({
+            statusCode: status,
+            msg: `Service Error: ${exception}`,
+        });
     }
 };
 AllExceptionsFilter = __decorate([
