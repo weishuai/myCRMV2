@@ -10,5 +10,7 @@ export declare class TaxesController {
         raws: any[];
         count: number;
     }>;
-    getTaxesAllView(): Promise<any[]>;
+    getTaxesAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

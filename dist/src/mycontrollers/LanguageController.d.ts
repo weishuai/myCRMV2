@@ -10,5 +10,7 @@ export declare class LanguageController {
         raws: any[];
         count: number;
     }>;
-    getLanguageAllView(): Promise<any[]>;
+    getLanguageAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

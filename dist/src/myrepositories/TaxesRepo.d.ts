@@ -8,6 +8,8 @@ export declare class TaxesRepo {
         raws: any[];
         count: number;
     }>;
-    getTaxesAllView(): Promise<any[]>;
+    getTaxesAllView(): Promise<{
+        fhok: any[];
+    }>;
     getTaxes(search: TaxesSearchVo): Promise<any[]>;
 }

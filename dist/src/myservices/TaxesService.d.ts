@@ -16,5 +16,7 @@ export declare class TaxesService {
         raws: any[];
         count: number;
     }>;
-    getTaxesAllView(): Promise<any[]>;
+    getTaxesAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

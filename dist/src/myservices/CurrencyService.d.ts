@@ -16,5 +16,7 @@ export declare class CurrencyService {
         raws: any[];
         count: number;
     }>;
-    getCurrencyAllView(): Promise<any[]>;
+    getCurrencyAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

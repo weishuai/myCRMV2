@@ -16,5 +16,7 @@ export declare class LanguageService {
         raws: any[];
         count: number;
     }>;
-    getLanguageAllView(): Promise<any[]>;
+    getLanguageAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

@@ -10,5 +10,7 @@ export declare class CurrencyController {
         raws: any[];
         count: number;
     }>;
-    getCurrencyAllView(): Promise<any[]>;
+    getCurrencyAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

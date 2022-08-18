@@ -8,6 +8,8 @@ export declare class CurrencyRepo {
         raws: any[];
         count: number;
     }>;
-    getcurrencyAllView(): Promise<any[]>;
+    getcurrencyAllView(): Promise<{
+        fhok: any[];
+    }>;
     getcurrency(search: CurrencySearchVo): Promise<any[]>;
 }
