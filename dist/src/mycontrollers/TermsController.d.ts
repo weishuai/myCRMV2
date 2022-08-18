@@ -10,5 +10,7 @@ export declare class TermsController {
         raws: any[];
         count: number;
     }>;
-    getTermsAllView(): Promise<any[]>;
+    getTermsAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

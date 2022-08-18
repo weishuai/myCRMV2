@@ -16,5 +16,7 @@ export declare class TermConditionService {
         raws: any[];
         count: number;
     }>;
-    getTermConditionAllView(): Promise<any[]>;
+    getTermConditionAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

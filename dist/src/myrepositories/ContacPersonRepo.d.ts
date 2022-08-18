@@ -5,7 +5,9 @@ export declare class ContacPersonRepo {
     remove(Ids: string[]): Promise<import("typeorm").UpdateResult>;
     getContacPersonAllBydueDate(): Promise<any[]>;
     getContacPersonById(id: string): Promise<any>;
-    getContacPersonAllView(): Promise<any[]>;
+    getContacPersonAllView(): Promise<{
+        fhok: any[];
+    }>;
     getContacPersonAll(search: ContacPersonSearchVo): Promise<{
         raws: any[];
         count: number;

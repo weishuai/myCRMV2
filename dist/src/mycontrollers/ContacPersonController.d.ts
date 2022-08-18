@@ -10,5 +10,7 @@ export declare class ContacPersonController {
         raws: any[];
         count: number;
     }>;
-    getContacPersonAllView(): Promise<any[]>;
+    getContacPersonAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

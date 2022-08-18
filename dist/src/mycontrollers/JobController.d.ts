@@ -10,5 +10,7 @@ export declare class JobController {
         raws: any[];
         count: number;
     }>;
-    getJobAllView(): Promise<any[]>;
+    getJobAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

@@ -16,5 +16,7 @@ export declare class ContacPersonService {
         raws: any[];
         count: number;
     }>;
-    getContacPersonAllView(): Promise<any[]>;
+    getContacPersonAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

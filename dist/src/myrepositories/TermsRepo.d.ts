@@ -8,6 +8,8 @@ export declare class TermsRepo {
         raws: any[];
         count: number;
     }>;
-    gettermsAllView(): Promise<any[]>;
+    gettermsAllView(): Promise<{
+        fhok: any[];
+    }>;
     getterms(search: TermsSearchVo): Promise<any[]>;
 }

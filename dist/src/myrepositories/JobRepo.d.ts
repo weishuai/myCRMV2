@@ -8,6 +8,8 @@ export declare class JobRepo {
         raws: any[];
         count: number;
     }>;
-    getJobAllView(): Promise<any[]>;
+    getJobAllView(): Promise<{
+        fhok: any[];
+    }>;
     getJob(userId: string, search: JobSearchVo): Promise<any[]>;
 }

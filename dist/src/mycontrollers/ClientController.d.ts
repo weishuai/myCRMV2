@@ -15,5 +15,7 @@ export declare class ClientController {
         raws: any[];
         count: number;
     }>;
-    getClientAllView(): Promise<any[]>;
+    getClientAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

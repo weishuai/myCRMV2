@@ -8,6 +8,8 @@ export declare class TermConditionRepo {
         raws: any[];
         count: number;
     }>;
-    getTermConditionAllView(): Promise<any[]>;
+    getTermConditionAllView(): Promise<{
+        fhok: any[];
+    }>;
     getTermCondition(search: TermConditionSearchVo): Promise<any[]>;
 }

@@ -10,5 +10,7 @@ export declare class TermConditionController {
         raws: any[];
         count: number;
     }>;
-    getTermConditionAllView(): Promise<any[]>;
+    getTermConditionAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

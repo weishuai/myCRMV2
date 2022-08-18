@@ -163,7 +163,7 @@ export class ClientRepo {
     qb.where('1=1');
     //andWhereEqual(qb, 'leadpools', 'id', id);
     const res = await qb.getRawMany();
-    return res;
+    return {'fhok':res};
   }
 
   async getClient(userId: string, search: ClientSearchVo) {

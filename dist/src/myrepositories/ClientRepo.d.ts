@@ -8,7 +8,9 @@ export declare class ClientRepo {
         raws: any[];
         count: number;
     }>;
-    getClientAllView(): Promise<any[]>;
+    getClientAllView(): Promise<{
+        fhok: any[];
+    }>;
     getClient(userId: string, search: ClientSearchVo): Promise<any[]>;
     getClientSQL(userId: string, search: FHClientSearchVo): Promise<{
         count: number;

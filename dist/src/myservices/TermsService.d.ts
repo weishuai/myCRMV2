@@ -16,5 +16,7 @@ export declare class TermsService {
         raws: any[];
         count: number;
     }>;
-    getTermsAllView(): Promise<any[]>;
+    getTermsAllView(): Promise<{
+        fhok: any[];
+    }>;
 }
