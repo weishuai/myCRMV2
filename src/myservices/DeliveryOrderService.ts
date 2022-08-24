@@ -26,6 +26,7 @@ export class DeliveryOrderService {
   }
 
   async createDeliveryOrder(deliveryOrderVo: DeliveryOrderVo) {
+    /*
     const mid = deliveryOrderVo.id;
 
     const refNumber = 'DO-';
@@ -34,7 +35,7 @@ export class DeliveryOrderService {
     );
 
     this.DeliveryItemRepo.updatedeliveryItemVoByMid(mid, deliveryOrderVo.id);
-
+   */
     return this.deliveryOrderRepo.create(deliveryOrderVo);
   }
 

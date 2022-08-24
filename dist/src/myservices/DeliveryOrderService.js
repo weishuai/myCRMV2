@@ -12,10 +12,6 @@ class DeliveryOrderService {
         return this.deliveryOrderRepo.getdeliveryOrdersById(Id);
     }
     async createDeliveryOrder(deliveryOrderVo) {
-        const mid = deliveryOrderVo.id;
-        const refNumber = 'DO-';
-        deliveryOrderVo.refNumber = String((await this.customizationRepo.nextGetNo(refNumber)).No);
-        this.DeliveryItemRepo.updatedeliveryItemVoByMid(mid, deliveryOrderVo.id);
         return this.deliveryOrderRepo.create(deliveryOrderVo);
     }
     async updateaDeliveryOrder(Id, user_id, deliveryOrderVo) {
