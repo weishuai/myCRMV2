@@ -65,7 +65,7 @@ import { FHcrmTable1 } from '../myentities/fhcrm_table1';
 const options: ConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
-  port: 5432,
+  port: 5433,
   username: 'openerp',
   password: 'openerp',
   database: 'crmwf',

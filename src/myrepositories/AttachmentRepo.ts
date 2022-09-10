@@ -130,10 +130,7 @@ export class AttachmentRepo {
   }
 
   async getAttachment(when: string, mid: string) {
-    return getRepository(Attachment).find({
-      when,
-      mid,
-      isDel: 0,
-    });
+    return getRepository(Attachment).findOneBy({when,mid,isDel: 0,});
+    
   }
 }

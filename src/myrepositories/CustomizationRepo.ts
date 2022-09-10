@@ -18,7 +18,7 @@ export class CustomizationRepo {
   // Add your code herer
 
   async nextVal(name: string, table?: string) {
-    const seq = await getRepository(Customization).findOne({
+    const seq = await getRepository(Customization).findOneBy({
       name,
     });
     if (_.isNil(seq)) {

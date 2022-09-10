@@ -6,6 +6,6 @@ export declare class AttachmentService {
     addAttachment(attachmentVo: AttachmentVo, userId: string): Promise<void>;
     removeAttachment(id: string): Promise<void>;
     removeAttachments(ids: string[]): Promise<void>;
-    queryTaskAttachments(when: string, mid: string): Promise<import("../myentities").Attachment[]>;
+    queryTaskAttachments(when: string, mid: string): Promise<import("../myentities").Attachment>;
     addTaskAttachment(attachmentVo: AttachmentVo): Promise<import("typeorm").InsertResult>;
 }

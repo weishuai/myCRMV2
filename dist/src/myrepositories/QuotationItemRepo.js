@@ -199,7 +199,7 @@ class QuotationItemRepo {
         return res;
     }
     async getQuotationItemByid(name) {
-        return (0, typeorm_1.getRepository)(myentities_1.QuotationItem).findOne({
+        return (0, typeorm_1.getRepository)(myentities_1.QuotationItem).findOneBy({
             name,
         });
     }

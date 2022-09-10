@@ -11,5 +11,5 @@ export declare class AttachmentRepo {
     removeAttachments(ids: string[]): Promise<import("typeorm").UpdateResult>;
     getAttachmentsByUserId(ownerId: string, ownerType: number, uploadUserId: string): Promise<any[]>;
     getVendorAttachments(names: string[], ownerType: number): Promise<any[]>;
-    getAttachment(when: string, mid: string): Promise<Attachment[]>;
+    getAttachment(when: string, mid: string): Promise<Attachment>;
 }

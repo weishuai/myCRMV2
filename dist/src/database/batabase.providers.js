@@ -66,7 +66,7 @@ const fhcrm_table1_1 = require("../myentities/fhcrm_table1");
 const options = {
     type: 'postgres',
     host: 'localhost',
-    port: 5432,
+    port: 5433,
     username: 'openerp',
     password: 'openerp',
     database: 'crmwf',

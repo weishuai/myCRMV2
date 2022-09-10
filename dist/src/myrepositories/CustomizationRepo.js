@@ -9,7 +9,7 @@ const lodash_1 = require("lodash");
 const myentities_1 = require("../myentities");
 class CustomizationRepo {
     async nextVal(name, table) {
-        const seq = await (0, typeorm_1.getRepository)(myentities_1.Customization).findOne({
+        const seq = await (0, typeorm_1.getRepository)(myentities_1.Customization).findOneBy({
             name,
         });
         if (lodash_1.default.isNil(seq)) {

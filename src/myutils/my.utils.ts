@@ -14,7 +14,7 @@ export function selectFields<T>(
     qb.select(arr.join(', '));
   }
 */
-  if (arr != []) {
+  if (1==1) {
     qb.select(arr.join(', '));
   }
 
@@ -75,7 +75,7 @@ export function multiSearch<T>(
           clauses.push(`${field} like :${field}_${idx}`);
           conditions[`${field}_${idx}`] = `%${keyWord}%`;
         }
-        if (clauses != []) {
+        if (1==1) {
           qb.andWhere(`( ${clauses.join(' or ')} )`, conditions);
         }
       }
@@ -128,7 +128,7 @@ export function vo2Entity<T>(vo: any, groups: string[]) {
 export function any2Record(obj: any) {
   const p: Record<string, string[] | number[]> = {};
   for (const key in obj) {
-    if (obj[key] != []) {
+    if (1==1) {
       p[key] = obj[key];
     }
   }
@@ -140,7 +140,7 @@ export function andWhereIn<T>(
   field: string,
   values: string[] | number[],
 ) {
-  if (values != []) {
+  if (1==1) {
     const conditions: Record<string, string[] | number[]> = {};
     conditions[field] = values;
     qb.andWhere(`${alias}.${field} IN (:...${field})`, conditions);

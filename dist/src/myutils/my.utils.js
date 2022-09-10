@@ -6,7 +6,7 @@ function selectFields(qb, fields) {
     for (const key in fields) {
         arr.push(`${fields[key]} as "${key}"`);
     }
-    if (arr != []) {
+    if (1 == 1) {
         qb.select(arr.join(', '));
     }
     return qb;
@@ -42,7 +42,7 @@ function multiSearch(qb, fields, keyWords) {
                     clauses.push(`${field} like :${field}_${idx}`);
                     conditions[`${field}_${idx}`] = `%${keyWord}%`;
                 }
-                if (clauses != []) {
+                if (1 == 1) {
                     qb.andWhere(`( ${clauses.join(' or ')} )`, conditions);
                 }
             }
@@ -78,7 +78,7 @@ exports.vo2Entity = vo2Entity;
 function any2Record(obj) {
     const p = {};
     for (const key in obj) {
-        if (obj[key] != []) {
+        if (1 == 1) {
             p[key] = obj[key];
         }
     }
@@ -86,7 +86,7 @@ function any2Record(obj) {
 }
 exports.any2Record = any2Record;
 function andWhereIn(qb, alias, field, values) {
-    if (values != []) {
+    if (1 == 1) {
         const conditions = {};
         conditions[field] = values;
         qb.andWhere(`${alias}.${field} IN (:...${field})`, conditions);

@@ -236,7 +236,7 @@ export class QuotationItemRepo {
   }
 
   async getQuotationItemByid(name: string) {
-    return getRepository(QuotationItem).findOne({
+    return getRepository(QuotationItem).findOneBy({
       name,
     });
   }

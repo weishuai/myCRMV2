@@ -91,11 +91,7 @@ class AttachmentRepo {
         return qb.getRawMany();
     }
     async getAttachment(when, mid) {
-        return (0, typeorm_1.getRepository)(Attachment_1.Attachment).find({
-            when,
-            mid,
-            isDel: 0,
-        });
+        return (0, typeorm_1.getRepository)(Attachment_1.Attachment).findOneBy({ when, mid, isDel: 0, });
     }
 }
 exports.AttachmentRepo = AttachmentRepo;
