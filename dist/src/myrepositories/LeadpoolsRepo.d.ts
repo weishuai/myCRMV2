@@ -8,6 +8,8 @@ export declare class LeadpoolsRepo {
         raws: any[];
         count: number;
     }>;
-    getLeadpoolsAllView(): Promise<any[]>;
+    getLeadpoolsAllView(): Promise<{
+        fhok: any[];
+    }>;
     getLeadpools(search: LeadpoolsSearchVo): Promise<any[]>;
 }

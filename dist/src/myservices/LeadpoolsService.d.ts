@@ -16,5 +16,7 @@ export declare class LeadpoolsService {
         raws: any[];
         count: number;
     }>;
-    getLeadpoolsAllView(): Promise<any[]>;
+    getLeadpoolsAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

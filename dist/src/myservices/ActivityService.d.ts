@@ -22,6 +22,8 @@ export declare class ActivityService {
         raws: any[];
         count: number;
     }>;
-    getActivityAllView(): Promise<any[]>;
+    getActivityAllView(): Promise<{
+        fhok: any[];
+    }>;
     getActivityEventsAll(): Promise<any[]>;
 }

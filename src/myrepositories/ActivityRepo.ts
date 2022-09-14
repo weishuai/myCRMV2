@@ -163,7 +163,7 @@ export class ActivityRepo {
     qb.where('1=1');
 
     const res = await qb.getRawMany();
-    return res;
+    return {'fhok':res};
   }
 
   async getActivityEventsAll() {

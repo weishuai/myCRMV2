@@ -16,6 +16,8 @@ export declare class ActivityController {
         raws: any[];
         count: number;
     }>;
-    getActivityAllView(): Promise<any[]>;
+    getActivityAllView(): Promise<{
+        fhok: any[];
+    }>;
     getActivityEventsAll(): Promise<any[]>;
 }

@@ -8,7 +8,9 @@ export declare class ActivityRepo {
         raws: any[];
         count: number;
     }>;
-    getActivityAllView(): Promise<any[]>;
+    getActivityAllView(): Promise<{
+        fhok: any[];
+    }>;
     getActivityEventsAll(): Promise<any[]>;
     getActivity(userId: string, search: ActivitySearchVo): Promise<any[]>;
     getActivitTask(userId: string, search: ActivitySearchVo): Promise<any[]>;
