@@ -4,6 +4,8 @@ export class LeadsVo {
   id: string;
 
   name: string;
+  
+  description: string;
 
   jobTitle: string;
 

@@ -31,6 +31,8 @@ export class ClientController {
     if (userToken != '') {
       userId = userToken;
     }
+    console.info("后台接收:1");
+    console.info(JSON.stringify(ClientVo));
     return this.clientService.updateaClient(Id, userId, ClientVo);
   }
 

@@ -18,6 +18,7 @@ export class ClientRepo {
     accountTagVo.updatedAt = new Date();
     accountTagVo.updatedUid = user_id;
     console.log(Id);
+    console.info("后台接收:2");
     return await getRepository(Client).update(Id, accountTagVo);
   }
   async remove(Ids: string[]) {

@@ -2,6 +2,7 @@ import { SearchVo } from '../myutils/searchVo';
 export declare class LeadsVo {
     id: string;
     name: string;
+    description: string;
     jobTitle: string;
     company: string;
     industry: string;

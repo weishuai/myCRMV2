@@ -14,6 +14,7 @@ class ClientRepo {
         accountTagVo.updatedAt = new Date();
         accountTagVo.updatedUid = user_id;
         console.log(Id);
+        console.info("后台接收:2");
         return await (0, typeorm_1.getRepository)(myentities_1.Client).update(Id, accountTagVo);
     }
     async remove(Ids) {
