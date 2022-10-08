@@ -54,7 +54,7 @@ export class ProductController {
     return this.productService.getProductAll(search);
   }
 
-  @Get('/getProductAllView')
+  @Get('/getFHProductAllView')
   async getProductAllView() {
     return this.productService.getProductAllView();
   }

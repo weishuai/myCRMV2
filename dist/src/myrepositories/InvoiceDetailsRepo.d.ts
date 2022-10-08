@@ -10,6 +10,8 @@ export declare class InvoiceDetailsRepo {
         raws: any[];
         count: number;
     }>;
-    getinvoiceDetailsAllView(): Promise<any[]>;
+    getinvoiceDetailsAllView(): Promise<{
+        fhok: any[];
+    }>;
     getinvoiceDetails(userId: string, search: InvoiceDetailsSearchVo): Promise<any[]>;
 }

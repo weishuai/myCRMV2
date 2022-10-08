@@ -41,7 +41,7 @@ export class OpportunityVo {
 
   dealAge: number;
 
-  closeProbabilitcloseProbability: string;
+  closeProbabilit: string;
 
   forecastValue: number;
 

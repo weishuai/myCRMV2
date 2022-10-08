@@ -10,5 +10,7 @@ export declare class ProductController {
         raws: any[];
         count: number;
     }>;
-    getProductAllView(): Promise<any[]>;
+    getProductAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

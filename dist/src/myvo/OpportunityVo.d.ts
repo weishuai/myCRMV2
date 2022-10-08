@@ -20,7 +20,7 @@ export declare class OpportunityVo {
     updatedUid: string;
     stage: string;
     dealAge: number;
-    closeProbabilitcloseProbability: string;
+    closeProbabilit: string;
     forecastValue: number;
     expectedCloseDate: Date;
     refNumber: string;

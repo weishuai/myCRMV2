@@ -16,5 +16,7 @@ export declare class ProductService {
         raws: any[];
         count: number;
     }>;
-    getProductAllView(): Promise<any[]>;
+    getProductAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

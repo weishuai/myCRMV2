@@ -221,7 +221,7 @@ export class InvoiceDetailsRepo {
     qb.where('1=1');
 
     const res = await qb.getRawMany();
-    return res;
+    return {"fhok":res};
   }
 
   async getinvoiceDetails(userId: string, search: InvoiceDetailsSearchVo) {

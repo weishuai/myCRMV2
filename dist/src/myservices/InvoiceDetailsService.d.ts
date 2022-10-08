@@ -20,5 +20,7 @@ export declare class InvoiceDetailsService {
         raws: any[];
         count: number;
     }>;
-    getInvoiceDetailsAllView(): Promise<any[]>;
+    getInvoiceDetailsAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

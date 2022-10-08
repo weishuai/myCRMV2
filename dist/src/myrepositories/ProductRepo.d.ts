@@ -8,6 +8,8 @@ export declare class ProductRepo {
         raws: any[];
         count: number;
     }>;
-    getproductAllView(): Promise<any[]>;
+    getproductAllView(): Promise<{
+        fhok: any[];
+    }>;
     getproduct(search: ProductSearchVo): Promise<any[]>;
 }

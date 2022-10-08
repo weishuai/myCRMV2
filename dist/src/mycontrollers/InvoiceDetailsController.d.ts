@@ -10,5 +10,7 @@ export declare class InvoiceDetailsController {
         raws: any[];
         count: number;
     }>;
-    getInvoiceDetailsAllView(): Promise<any[]>;
+    getInvoiceDetailsAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

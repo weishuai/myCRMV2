@@ -91,7 +91,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "getProductAll", null);
 __decorate([
-    (0, common_1.Get)('/getProductAllView'),
+    (0, common_1.Get)('/getFHProductAllView'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
