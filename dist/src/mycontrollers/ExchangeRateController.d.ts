@@ -10,5 +10,7 @@ export declare class ExchangeRateController {
         raws: any[];
         count: number;
     }>;
-    getExchangeRateAllView(): Promise<any[]>;
+    getExchangeRateAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

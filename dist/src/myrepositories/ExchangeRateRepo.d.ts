@@ -8,6 +8,8 @@ export declare class ExchangeRateRepo {
         raws: any[];
         count: number;
     }>;
-    getExchangeRateAllView(): Promise<any[]>;
+    getExchangeRateAllView(): Promise<{
+        fhok: any[];
+    }>;
     getExchangeRate(search: ExchangeRateSearchVo): Promise<any[]>;
 }

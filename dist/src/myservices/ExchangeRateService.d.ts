@@ -16,5 +16,7 @@ export declare class ExchangeRateService {
         raws: any[];
         count: number;
     }>;
-    getExchangeRateAllView(): Promise<any[]>;
+    getExchangeRateAllView(): Promise<{
+        fhok: any[];
+    }>;
 }
