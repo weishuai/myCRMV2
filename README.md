@@ -17,7 +17,7 @@
 # npm run start
 # npm run start:dev
 # npm run start:prod
-# cd /Volumes/软件/FHCRM/mycrm_api_v6.0
+# cd  /Volumes/mycode/myNODE20240001/丰禾MyReact框架v6.3/mycrm_api_v6.2
 # yarn install
 # yarn build
 # yarn start
