@@ -1,6 +1,8 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 export declare class StaffListVo {
     id: string;
+    name: string;
+    description: string;
     fullName: string;
     contactNo: string;
     email: string;
@@ -21,7 +23,7 @@ export declare class LStaffListVo {
     email: string;
     role: string;
     clients: string;
-    ltype: string;
+    type: string;
     login: string;
     updatedAt: Date;
     isactived: string;

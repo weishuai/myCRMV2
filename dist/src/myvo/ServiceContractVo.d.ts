@@ -1,4 +1,4 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 export declare class ServiceContractVo {
     id: string;
     contractRef: string;

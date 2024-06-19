@@ -18,6 +18,10 @@ __decorate([
     __metadata("design:type", String)
 ], InvoicePayment.prototype, "id", void 0);
 __decorate([
+    (0, typeorm_1.Column)('varchar', { name: 'name', nullable: true, length: 10 }),
+    __metadata("design:type", String)
+], InvoicePayment.prototype, "name", void 0);
+__decorate([
     (0, typeorm_1.Column)('varchar', { name: 'invoice_id', nullable: true, length: 255 }),
     __metadata("design:type", String)
 ], InvoicePayment.prototype, "invoiceId", void 0);

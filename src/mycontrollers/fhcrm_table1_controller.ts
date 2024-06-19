@@ -1,3 +1,6 @@
+/*
+
+
 import {
   Controller,
   Get,
@@ -98,3 +101,4 @@ export class FHcrmTable1Controller {
     return await this.fhcrmTable1Service.getFHcrmTable1AllView();
   }
 }
+*/

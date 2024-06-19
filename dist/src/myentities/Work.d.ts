@@ -8,8 +8,8 @@ export declare class Work {
     room: string | null;
     client: string | null;
     contact: string | null;
-    workInstructions: string | null;
-    assignTo: string | null;
+    workInstructions: string[] | null;
+    assignTo: string[] | null;
     startDate: Date | null;
     endDate: Date | null;
     remark: string | null;

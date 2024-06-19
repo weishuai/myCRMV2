@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FHcrmTable1SearchVo = exports.FHcrmTable1Vo = void 0;
-const searchVo_1 = require("../myutils/searchVo");
+const searchvo_1 = require("../myutils/searchvo");
 const class_validator_1 = require("class-validator");
 class FHcrmTable1Vo {
 }
@@ -53,7 +53,7 @@ __decorate([
     __metadata("design:type", String)
 ], FHcrmTable1Vo.prototype, "updatedUid", void 0);
 exports.FHcrmTable1Vo = FHcrmTable1Vo;
-class FHcrmTable1SearchVo extends searchVo_1.SearchVo {
+class FHcrmTable1SearchVo extends searchvo_1.SearchVo {
 }
 exports.FHcrmTable1SearchVo = FHcrmTable1SearchVo;
 //# sourceMappingURL=fhcrm_table1_vo.js.map

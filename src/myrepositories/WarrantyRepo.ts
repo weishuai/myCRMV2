@@ -9,6 +9,7 @@ import {
 import _ from 'lodash';
 import { WarrantySearchVo, WarrantyVo } from '../myvo/WarrantyVo';
 import { Warranty } from '../myentities';
+import { Product } from '../myentities/Product';
 
 export class WarrantyRepo {
   async create(accountTagVo: WarrantyVo) {
@@ -53,10 +54,11 @@ export class WarrantyRepo {
 
   async getWarrantyAll(search: WarrantySearchVo) {
     const qb = getRepository(Warranty).createQueryBuilder('warranty');
+    qb.leftJoin(Product, 'product', 'warranty.product=product.id');
     const fields: Record<string, string> = {
       id: 'warranty.id',
       name: 'warranty.name',
-      product: 'warranty.product',
+      product: 'product.product_name',
       startDate: 'warranty.start_date',
       endDate: 'warranty.end_date',
       isRemind: 'warranty.is_remind',

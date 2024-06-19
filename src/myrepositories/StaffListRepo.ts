@@ -32,6 +32,8 @@ export class StaffListRepo {
     const fields: Record<string, string> = {
       id: 'staff_list.id',
       fullName: 'staff_list.full_name',
+      name: 'staff_list.name',
+      description: 'staff_list.description',
       contactNo: 'staff_list.contact_no',
       email: 'staff_list.email',
       role: 'staff_list.role',
@@ -56,6 +58,8 @@ export class StaffListRepo {
     const qb = getRepository(StaffList).createQueryBuilder('staff_list');
     const fields: Record<string, string> = {
       id: 'staff_list.id',
+      name: 'staff_list.name',
+      description: 'staff_list.description',
       fullName: 'staff_list.full_name',
       contactNo: 'staff_list.contact_no',
       email: 'staff_list.email',
@@ -88,6 +92,8 @@ export class StaffListRepo {
     const qb = getRepository(StaffList).createQueryBuilder('staff_list');
     const fields: Record<string, string> = {
       id: 'staff_list.id',
+      name: 'staff_list.name',
+      description: 'staff_list.description',
       fullName: 'staff_list.full_name',
       contactNo: 'staff_list.contact_no',
       email: 'staff_list.email',
@@ -113,6 +119,8 @@ export class StaffListRepo {
     const qb = getRepository(StaffList).createQueryBuilder('staff_list');
     const fields: Record<string, string> = {
       id: 'staff_list.id',
+      name: 'staff_list.name',
+      description: 'staff_list.description',
       fullName: 'staff_list.full_name',
       contactNo: 'staff_list.contact_no',
       email: 'staff_list.email',

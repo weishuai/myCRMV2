@@ -5,6 +5,9 @@ const pagination_1 = require("../myutils/pagination");
 const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const myentities_1 = require("../myentities");
+const User_1 = require("../myentities/User");
+const Currency_1 = require("../myentities/Currency");
+const Taxes_1 = require("../myentities/Taxes");
 class PurchaseOrderRepo {
     async create(accountTagVo) {
         return await (0, typeorm_1.getRepository)(myentities_1.PurchaseOrder).insert(accountTagVo);
@@ -47,13 +50,16 @@ class PurchaseOrderRepo {
     }
     async getpurchaseOrderAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.PurchaseOrder).createQueryBuilder('purchase_order');
+        qb.leftJoin(User_1.User, 'user', 'purchase_order.contact=user.id');
+        qb.leftJoin(Currency_1.Currency, 'currency', 'purchase_order.currency=currency.id');
+        qb.leftJoin(Taxes_1.Taxes, 'taxes', 'purchase_order.taxes=taxes.id');
         const fields = {
             id: 'purchase_order.id',
             name: 'purchase_order.name',
-            currency: 'purchase_order.currency',
-            contact: 'purchase_order.contact',
+            currency: 'currency.name',
+            contact: 'user.userName',
             paymentTerms: 'purchase_order.payment_terms',
-            taxes: 'purchase_order.taxes',
+            taxes: 'taxes.name',
             remark: 'purchase_order.remark',
             createdAt: 'purchase_order.created_at',
             updatedAt: 'purchase_order.updated_at',

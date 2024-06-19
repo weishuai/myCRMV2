@@ -8,6 +8,14 @@ export class Job {
   @Column('varchar', { name: 'title', nullable: true, length: 255 })
   title: string | null;
 
+
+  @Column('varchar', { name: 'name', nullable: true, length: 255 })
+  name: string | null;
+
+  @Column('varchar', { name: 'description', nullable: true, length: 255 })
+  description: string | null;
+
+
   @Column('varchar', { name: 'wi_type', nullable: true, length: 255 })
   wiType: string | null;
 

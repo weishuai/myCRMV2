@@ -4,6 +4,11 @@ import { Column, Entity } from 'typeorm';
 export class StaffList {
   @Column('varchar', { primary: true, name: 'id', length: 10 })
   id: string;
+  @Column('varchar', { name: 'name', nullable: true, length: 255 })
+  name: string | null;
+
+  @Column('varchar', { name: 'description', nullable: true, length: 255 })
+  description: string | null;
 
   @Column('varchar', { name: 'full_name', nullable: true, length: 255 })
   fullName: string | null;

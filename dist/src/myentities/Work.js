@@ -50,12 +50,12 @@ __decorate([
     __metadata("design:type", String)
 ], Work.prototype, "contact", void 0);
 __decorate([
-    (0, typeorm_1.Column)('varchar', { name: 'work_instructions', nullable: true, length: 255 }),
-    __metadata("design:type", String)
+    (0, typeorm_1.Column)('varchar', { name: 'work_instructions', array: true, nullable: true, length: 255 }),
+    __metadata("design:type", Array)
 ], Work.prototype, "workInstructions", void 0);
 __decorate([
-    (0, typeorm_1.Column)('text', { name: 'assign_to', nullable: true }),
-    __metadata("design:type", String)
+    (0, typeorm_1.Column)('text', { name: 'assign_to', array: true, nullable: true }),
+    __metadata("design:type", Array)
 ], Work.prototype, "assignTo", void 0);
 __decorate([
     (0, typeorm_1.Column)('timestamp', { name: 'start_date', nullable: true }),

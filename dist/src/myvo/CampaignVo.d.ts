@@ -1,4 +1,4 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 export declare class CampaignVo {
     name: string;
     id: string;

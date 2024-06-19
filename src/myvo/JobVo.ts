@@ -1,10 +1,11 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 
 export class JobVo {
   id: string;
 
   title: string;
-
+  name: string;
+  description: string;
   wiType: string;
 
   clients: string;

@@ -13,6 +13,8 @@ import {
 } from '../myvo/ServiceContractVo';
 import { ServiceContract } from '../myentities';
 
+import { Client } from '../myentities/Client';
+
 export class ServiceContractRepo {
   async create(accountTagVo: ServiceContractVo) {
     return await getRepository(ServiceContract).insert(accountTagVo);
@@ -67,13 +69,16 @@ export class ServiceContractRepo {
   async getserviceContractAll(search: ServiceContractSearchVo) {
     const qb =
       getRepository(ServiceContract).createQueryBuilder('service_contract');
+
+      qb.leftJoin(Client, 'client', 'service_contract.account=client.id');
+      
     const fields: Record<string, string> = {
       id: 'service_contract.id',
       contractRef: 'service_contract.contract_ref',
       createdBy: 'service_contract.created_by',
       contractName: 'service_contract.contract_name',
       status: 'service_contract.status',
-      account: 'service_contract.account',
+      account: 'client.name',
       contractValues: 'service_contract.contract_values',
       startDate: 'service_contract.start_date',
       endDate: 'service_contract.end_date',

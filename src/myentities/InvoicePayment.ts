@@ -4,7 +4,8 @@ import { Column, Entity } from 'typeorm';
 export class InvoicePayment {
   @Column('varchar', { primary: true, name: 'id', length: 10 })
   id: string;
-
+  @Column('varchar', {  name: 'name',nullable: true, length: 10 })
+  name: string | null;
   @Column('varchar', { name: 'invoice_id', nullable: true, length: 255 })
   invoiceId: string | null;
 

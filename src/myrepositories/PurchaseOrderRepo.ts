@@ -12,7 +12,9 @@ import {
   PurchaseOrderVo,
 } from '../myvo/PurchaseOrderVo';
 import { PurchaseOrder } from '../myentities';
-
+import { User } from '../myentities/User';
+import { Currency } from '../myentities/Currency';
+import { Taxes } from '../myentities/Taxes';
 export class PurchaseOrderRepo {
   async create(accountTagVo: PurchaseOrderVo) {
     return await getRepository(PurchaseOrder).insert(accountTagVo);
@@ -59,13 +61,17 @@ export class PurchaseOrderRepo {
   async getpurchaseOrderAll(search: PurchaseOrderSearchVo) {
     const qb =
       getRepository(PurchaseOrder).createQueryBuilder('purchase_order');
+
+      qb.leftJoin(User, 'user', 'purchase_order.contact=user.id');
+      qb.leftJoin(Currency, 'currency', 'purchase_order.currency=currency.id');
+      qb.leftJoin(Taxes, 'taxes', 'purchase_order.taxes=taxes.id');
     const fields: Record<string, string> = {
       id: 'purchase_order.id',
       name: 'purchase_order.name',
-      currency: 'purchase_order.currency',
-      contact: 'purchase_order.contact',
+      currency: 'currency.name',
+      contact: 'user.userName',
       paymentTerms: 'purchase_order.payment_terms',
-      taxes: 'purchase_order.taxes',
+      taxes: 'taxes.name',
       remark: 'purchase_order.remark',
       createdAt: 'purchase_order.created_at',
       updatedAt: 'purchase_order.updated_at',

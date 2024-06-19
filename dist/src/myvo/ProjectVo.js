@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IssueStatusVo = exports.ProjectStartVo = exports.IssueBasicVo = exports.IssueSoqVo = exports.IssueRejectVo = exports.IssueSearchVo = exports.IssueBriefVo = exports.IssueVendorQuotationVo = exports.IssueItemQuotationVo = exports.IssueQuotationUpdateVo = exports.IssueQuotationVo = exports.IssueCouncilVoteVo = exports.IssueDetailVo = exports.ProjectVendorVo = exports.IssueRfqVo = exports.IssueItemGetVo = exports.IssueItemAddVo = exports.IssueAddWithAttachmentVo = exports.IssueAddVo = void 0;
-const searchVo_1 = require("../myutils/searchVo");
+const searchvo_1 = require("../myutils/searchvo");
 class IssueAddVo {
 }
 exports.IssueAddVo = IssueAddVo;
@@ -41,7 +41,7 @@ exports.IssueVendorQuotationVo = IssueVendorQuotationVo;
 class IssueBriefVo {
 }
 exports.IssueBriefVo = IssueBriefVo;
-class IssueSearchVo extends searchVo_1.SearchVo {
+class IssueSearchVo extends searchvo_1.SearchVo {
 }
 exports.IssueSearchVo = IssueSearchVo;
 class IssueRejectVo {

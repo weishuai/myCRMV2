@@ -80,8 +80,7 @@ class JobItemRepo {
             updatedUid: 'job_item.updated_uid',
         };
         (0, my_utils_1.selectFields)(qb, fields);
-        qb.where("job_item.isactived='0'");
-        (0, my_utils_1.multiSearch)(qb, ['job_item.title'], search.search);
+        qb.where("job_item.isactived='0' and job_item.mid='" + search.mid + "'");
         qb.orderBy('job_item.created_at', 'DESC');
         const count = await qb.getCount();
         const { skip, take } = (0, pagination_1.skipAndTake)(count, search);

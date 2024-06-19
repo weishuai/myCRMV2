@@ -23,7 +23,7 @@ class QuotationRepo {
         });
     }
     async getquotationsById(id) {
-        const qb = (0, typeorm_1.getRepository)(QuotationRepo).createQueryBuilder('quotation');
+        const qb = (0, typeorm_1.getRepository)(myentities_1.Quotation).createQueryBuilder('quotation');
         const fields = {
             id: 'quotation.id',
             clientId: 'quotation.client_id',
@@ -64,7 +64,7 @@ class QuotationRepo {
         return res;
     }
     async getquotationAll(search) {
-        const qb = (0, typeorm_1.getRepository)(QuotationRepo).createQueryBuilder('quotation');
+        const qb = (0, typeorm_1.getRepository)(myentities_1.Quotation).createQueryBuilder('quotation');
         const fields = {
             id: 'quotation.id',
             clientId: 'quotation.client_id',
@@ -100,7 +100,6 @@ class QuotationRepo {
         };
         (0, my_utils_1.selectFields)(qb, fields);
         qb.where("quotation.isactived='0'");
-        (0, my_utils_1.andWhereEqual)(qb, 'quotation', 'status', 'ClosedWon');
         (0, my_utils_1.multiSearch)(qb, ['quotation.quotation_name', 'quotation.remark'], search.search);
         qb.orderBy('quotation.created_at', 'DESC');
         const count = await qb.getCount();
@@ -109,7 +108,7 @@ class QuotationRepo {
         return { 'raws': raws, 'count': count };
     }
     async getquotationAllView() {
-        const qb = (0, typeorm_1.getRepository)(QuotationRepo).createQueryBuilder('quotation');
+        const qb = (0, typeorm_1.getRepository)(myentities_1.Quotation).createQueryBuilder('quotation');
         const fields = {
             id: 'quotation.id',
             clientId: 'quotation.client_id',
@@ -149,7 +148,7 @@ class QuotationRepo {
         return res;
     }
     async getquotation(userId, search) {
-        const qb = (0, typeorm_1.getRepository)(QuotationRepo).createQueryBuilder('quotation');
+        const qb = (0, typeorm_1.getRepository)(myentities_1.Quotation).createQueryBuilder('quotation');
         const fields = {
             id: 'quotation.id',
             clientId: 'quotation.client_id',
@@ -217,7 +216,7 @@ class QuotationRepo {
         return res;
     }
     async getquotationSQL(userId, search) {
-        const qb = (0, typeorm_1.getRepository)(QuotationRepo).createQueryBuilder('quotation');
+        const qb = (0, typeorm_1.getRepository)(myentities_1.Quotation).createQueryBuilder('quotation');
         const fields = {
             id: 'quotation.id',
             clientId: 'quotation.client_id',
@@ -287,7 +286,7 @@ class QuotationRepo {
         return { count: count, raws: raws };
     }
     async getquotationSQLList(userId, search) {
-        const qb = (0, typeorm_1.getRepository)(QuotationRepo).createQueryBuilder('quotation');
+        const qb = (0, typeorm_1.getRepository)(myentities_1.Quotation).createQueryBuilder('quotation');
         const fields = {
             id: 'quotation.id',
             clientId: 'quotation.client_id',

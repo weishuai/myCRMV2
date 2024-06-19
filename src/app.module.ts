@@ -72,10 +72,76 @@ import { WarrantyController } from './mycontrollers//WarrantyController';
 import { WorkController } from './mycontrollers//WorkController';
 import { WorkItemController } from './mycontrollers/WorkItemController';
 import { WorkNoteController } from './mycontrollers/WorkNoteController';
-import { FHcrmTable1Controller } from './mycontrollers/fhcrm_table1_controller';
+//import { FHcrmTable1Controller } from './mycontrollers/fhcrm_table1_controller';
+
+import { AccountingVoucherController } from './mycontrollers/accounting_voucher_controller';
+import { AccountingVoucherListController } from './mycontrollers/accounting_voucher_list_controller';
+import { BankCashController } from './mycontrollers/bank_cash_controller';
+import { BatchController } from './mycontrollers/batch_controller';
+import { InventoryController } from './mycontrollers/inventory_controller';
+import { InventoryListController } from './mycontrollers/inventory_list_controller';
+import { mybomController } from './mycontrollers/mybom_controller';
+import { myBomProductController } from './mycontrollers/mybom_product_controller';
+
+import { myWorkCenterController } from './mycontrollers/mywork_center_controller';
+import { myWorkController } from './mycontrollers/mywork_controller';
+import { StoragelocationController } from './mycontrollers/storage_location_controller';
+import { StoreMoveController  } from './mycontrollers/store_move_controller';
+import { StoreMoveListController  } from './mycontrollers/store_move_list_controller';
+import { WarehouseController } from './mycontrollers/warehouse_controller';
+
+import { StockQuantController } from './mycontrollers/stock_quant_controller';
+import { StockValuationLayerController } from './mycontrollers/stock_valuation_layer_controller';
+import { StockWarehouseOrderpointController } from './mycontrollers/stock_warehouse_orderpoint_controller';
+
+
+
+import { FhfaultController } from './mycontrollers/fhfault_controller';
+import { FhinspectionController } from './mycontrollers/fhinspection_controller';
+import { FhmeasuringController } from './mycontrollers/fhmeasuring_controller';
+import { FhreformController } from './mycontrollers/fhreform_controller';
+import { FhrunningController } from './mycontrollers/fhrunning_controller';
+import { FhservicePlanController } from './mycontrollers/fhservice_plan_controller';
+import { FhservicetbController } from './mycontrollers/fhservicetb_controller';
+// import { FhtestController } from './mycontrollers/fhtest_controller';
+import { FhtestFht1Controller } from './mycontrollers/fhtest_fht1_controller';
+import { HrContractController } from './mycontrollers/hr_contract_controller';
+import { ProcurePlanController } from './mycontrollers/procure_plan_controller';
+import { ProcurePlanListController } from './mycontrollers/procure_plan_list_controller';
+import { ProcurePriceController } from './mycontrollers/procure_price_controller';
+import { QualityInspectionController } from './mycontrollers/quality_inspection_controller';
+import { QualitylnspectionItemController } from './mycontrollers/quality_inspection_item_controller';
+import { ReturnorderController } from './mycontrollers/returnorder_controller';
+import { SaleContractController } from './mycontrollers/sale_contract_controller';
+import { SellingPriceController } from './mycontrollers/selling_price_controller';
+import { SellingPriceListController } from './mycontrollers/selling_price_list_controller';
+// import { StoreMoveListController  } from './mycontrollers/store_move_list_controller';
+import { TbaftersaleController } from './mycontrollers/tbaftersale_controller';
+import { TbmatchingController } from './mycontrollers/tbmatching_controller';
+import { TbmatchinglineController } from './mycontrollers/tbmatchingline_controller';
+import { TbpackagController  } from './mycontrollers/tbpackag_controller';
+import { TbreturnvisitController } from './mycontrollers/tbreturnvisit_controller';
+
 @Module({
   imports: [DatabaseModule],
   controllers: [
+    StockQuantController,
+    StockValuationLayerController,
+    StockWarehouseOrderpointController,
+    AccountingVoucherController,
+    AccountingVoucherListController,
+    BankCashController,
+    BatchController,
+    InventoryController,
+    InventoryListController,
+    mybomController,
+    myBomProductController,
+    myWorkCenterController,
+    myWorkController,
+    StoragelocationController,
+    StoreMoveController,
+    StoreMoveListController,
+    WarehouseController,
     AppController,
     AccountTagController,
     FHUserController,
@@ -147,7 +213,33 @@ import { FHcrmTable1Controller } from './mycontrollers/fhcrm_table1_controller';
     WorkController,
     WorkItemController,
     WorkNoteController,
-    FHcrmTable1Controller,
+    //FHcrmTable1Controller,
+    FhfaultController,
+    FhinspectionController,
+    FhmeasuringController,
+    FhreformController,
+    FhrunningController,
+    FhservicePlanController,
+    FhservicetbController,
+    FhtestController,
+    FhtestFht1Controller,
+    HrContractController,
+    ProcurePlanController ,
+    ProcurePlanListController,
+    ProcurePriceController,
+    QualityInspectionController,
+    QualitylnspectionItemController,
+    ReturnorderController,
+    SaleContractController,
+    SellingPriceController,
+    SellingPriceListController,
+    StoreMoveListController,
+    TbaftersaleController,
+    TbmatchingController,
+    TbmatchinglineController,
+    TbpackagController,
+    TbreturnvisitController,
+
   ],
   providers: [AppService],
 })

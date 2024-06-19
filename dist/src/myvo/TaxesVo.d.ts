@@ -1,4 +1,4 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 export declare class TaxesVo {
     id: string;
     name: string;

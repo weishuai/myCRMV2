@@ -5,6 +5,7 @@ const pagination_1 = require("../myutils/pagination");
 const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const myentities_1 = require("../myentities");
+const Product_1 = require("../myentities/Product");
 class WarrantyRepo {
     async create(accountTagVo) {
         return await (0, typeorm_1.getRepository)(myentities_1.Warranty).insert(accountTagVo);
@@ -46,10 +47,11 @@ class WarrantyRepo {
     }
     async getWarrantyAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.Warranty).createQueryBuilder('warranty');
+        qb.leftJoin(Product_1.Product, 'product', 'warranty.product=product.id');
         const fields = {
             id: 'warranty.id',
             name: 'warranty.name',
-            product: 'warranty.product',
+            product: 'product.product_name',
             startDate: 'warranty.start_date',
             endDate: 'warranty.end_date',
             isRemind: 'warranty.is_remind',

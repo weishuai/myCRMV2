@@ -60,7 +60,7 @@ class NoteRepo {
             updatedUid: 'note.updated_uid',
         };
         (0, my_utils_1.selectFields)(qb, fields);
-        qb.where('1=1');
+        qb.where("note.isactived='0'");
         (0, my_utils_1.multiSearch)(qb, ['note.subject', 'note.note'], search.search);
         qb.orderBy('note.created_at', 'DESC');
         const count = await qb.getCount();

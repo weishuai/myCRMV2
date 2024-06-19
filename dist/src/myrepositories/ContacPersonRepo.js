@@ -5,6 +5,7 @@ const pagination_1 = require("../myutils/pagination");
 const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const myentities_1 = require("../myentities");
+const Client_1 = require("../myentities/Client");
 const lodash_1 = require("lodash");
 class ContacPersonRepo {
     async create(accountTagVo) {
@@ -132,11 +133,12 @@ class ContacPersonRepo {
     }
     async getContacPersonAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.ContacPerson).createQueryBuilder('contac_person');
+        qb.leftJoin(Client_1.Client, 'client', 'client.id=contac_person.client');
         const fields = {
             id: 'contac_person.id',
             name: 'contac_person.name',
             isAlert: 'contac_person.is_alert',
-            client: 'contac_person.client',
+            client: 'client.name',
             no: 'contac_person.no',
             email: 'contac_person.email',
             islogin: 'contac_person.islogin',

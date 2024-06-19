@@ -110,8 +110,9 @@ export class WorkItemRepo {
       updatedUid: 'work_item.updated_uid',
     };
     selectFields(qb, fields);
-    qb.where("work_item.isactived='0'");
-    multiSearch(qb, ['work_item.name', 'work_item.remark'], search.search);
+    // qb.where("work_item.isactived='0'");
+    // multiSearch(qb, ['work_item.name', 'work_item.remark'], search.search);
+    qb.where("work_item.isactived='0' and work_item.mid='"+search.mid+"'");
     qb.orderBy('work_item.created_at', 'DESC');
     const count = await qb.getCount();
     const { skip, take } = skipAndTake(count, search);

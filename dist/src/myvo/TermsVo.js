@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TermsSearchVo = exports.TermsVo = void 0;
-const searchVo_1 = require("../myutils/searchVo");
+const searchvo_1 = require("../myutils/searchvo");
 class TermsVo {
 }
 exports.TermsVo = TermsVo;
-class TermsSearchVo extends searchVo_1.SearchVo {
+class TermsSearchVo extends searchvo_1.SearchVo {
 }
 exports.TermsSearchVo = TermsSearchVo;
 //# sourceMappingURL=TermsVo.js.map

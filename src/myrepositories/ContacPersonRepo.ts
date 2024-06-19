@@ -8,6 +8,7 @@ import {
 } from '../myutils/my.utils';
 import { ContacPersonSearchVo, ContacPersonVo } from '../myvo/ContacPersonVo';
 import { ContacPerson } from '../myentities';
+import { Client } from '../myentities/Client';
 import _ from 'lodash';
 
 export class ContacPersonRepo {
@@ -143,11 +144,12 @@ export class ContacPersonRepo {
 
   async getContacPersonAll(search: ContacPersonSearchVo) {
     const qb = getRepository(ContacPerson).createQueryBuilder('contac_person');
+    qb.leftJoin(Client, 'client', 'client.id=contac_person.client');
     const fields: Record<string, string> = {
       id: 'contac_person.id',
       name: 'contac_person.name',
       isAlert: 'contac_person.is_alert',
-      client: 'contac_person.client',
+      client: 'client.name',
       no: 'contac_person.no',
       email: 'contac_person.email',
       islogin: 'contac_person.islogin',

@@ -1,4 +1,4 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 export declare class PurchaseItemVo {
     id: string;
     detailsId: string;

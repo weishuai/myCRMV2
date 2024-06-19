@@ -6,6 +6,7 @@ const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const lodash_1 = require("lodash");
 const myentities_1 = require("../myentities");
+const User_1 = require("../myentities/User");
 class InvoiceDetailsRepo {
     async create(accountTagVo) {
         return await (0, typeorm_1.getRepository)(myentities_1.InvoiceDetails).insert(accountTagVo);
@@ -117,6 +118,8 @@ class InvoiceDetailsRepo {
     }
     async getinvoiceDetailsAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.InvoiceDetails).createQueryBuilder('invoice_details');
+        qb.leftJoin(User_1.User, 'user', 'invoice_details.client_contact=user.id');
+        qb.leftJoin(User_1.User, 'user2', 'invoice_details.sales_person=user2.id');
         const fields = {
             id: 'invoice_details.id',
             linkedUotation: 'invoice_details.linked_uotation',
@@ -124,8 +127,8 @@ class InvoiceDetailsRepo {
             invoiceStatus: 'invoice_details.invoice_status',
             invoiceName: 'invoice_details.invoice_name',
             account: 'invoice_details.account',
-            salesPerson: 'invoice_details.sales_person',
-            clientContact: 'invoice_details.client_contact',
+            salesPerson: 'user2.userName',
+            clientContact: 'user.userName',
             currency: 'invoice_details.currency',
             invoiceDate: 'invoice_details.invoice_date',
             dueDate: 'invoice_details.due_date',

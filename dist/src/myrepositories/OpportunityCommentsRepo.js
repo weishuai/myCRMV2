@@ -76,8 +76,7 @@ class OpportunityCommentsRepo {
             updatedUid: 'opportunity_comments.updated_uid',
         };
         (0, my_utils_1.selectFields)(qb, fields);
-        qb.where('1=1');
-        (0, my_utils_1.multiSearch)(qb, ['opportunity_comments.subject', 'opportunity_comments.note'], search.search);
+        qb.where("opportunity_comments.isactived='0' and opportunity_comments.mid='" + search.mid + "'");
         qb.orderBy('opportunity_comments.created_at', 'DESC');
         const count = await qb.getCount();
         const { skip, take } = (0, pagination_1.skipAndTake)(count, search);

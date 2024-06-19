@@ -13,7 +13,7 @@ import {
   OpportunityVo,
 } from '../myvo/OpportunityVo';
 import { Opportunity } from '../myentities';
-
+import { User } from '../myentities/User';
 export class OpportunityRepo {
   async create(accountTagVo: OpportunityVo) {
     return await getRepository(Opportunity).insert(accountTagVo);
@@ -81,11 +81,12 @@ export class OpportunityRepo {
 
   async getopportunityAll(search: OpportunitySearchVo) {
     const qb = getRepository(Opportunity).createQueryBuilder('opportunity');
+    qb.leftJoin(User, 'user', 'opportunity.opportunity_owner=user.id');
     const fields: Record<string, string> = {
       id: 'opportunity.id',
       opportunityName: 'opportunity.opportunity_name',
       account: 'opportunity.account',
-      opportunityOwner: 'opportunity.opportunity_owner',
+      opportunityOwner: 'user.userName',
       expiryDate: 'opportunity.expiry_date',
       stageName: 'opportunity.stage_name',
       probability: 'opportunity.probability',

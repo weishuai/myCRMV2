@@ -8,8 +8,8 @@ import {
 } from '../myutils/my.utils';
 import _ from 'lodash';
 import { LeadsSearchVo, LeadsVo } from '../myvo/LeadsVo';
-import { Leads } from '../myentities';
-
+import { Leads } from '../myentities/Leads';
+import { Client } from '../myentities/Client';
 export class LeadsRepo {
   async create(accountTagVo: LeadsVo) {
     return await getRepository(Leads).insert(accountTagVo);
@@ -68,11 +68,12 @@ export class LeadsRepo {
 
   async getLeadsAll(search: LeadsSearchVo) {
     const qb = getRepository(Leads).createQueryBuilder('leads');
+    qb.leftJoin(Client, 'client', 'leads.company = client.id');
     const fields: Record<string, string> = {
       id: 'leads.id',
       name: 'leads.name',
       jobTitle: 'leads.job_title',
-      company: 'leads.company',
+      company: 'client.name',
       industry: 'leads.industry',
       website: 'leads.website',
       email: 'leads.email',

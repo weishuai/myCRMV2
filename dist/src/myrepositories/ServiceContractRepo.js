@@ -5,6 +5,7 @@ const pagination_1 = require("../myutils/pagination");
 const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const myentities_1 = require("../myentities");
+const Client_1 = require("../myentities/Client");
 class ServiceContractRepo {
     async create(accountTagVo) {
         return await (0, typeorm_1.getRepository)(myentities_1.ServiceContract).insert(accountTagVo);
@@ -56,13 +57,14 @@ class ServiceContractRepo {
     }
     async getserviceContractAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.ServiceContract).createQueryBuilder('service_contract');
+        qb.leftJoin(Client_1.Client, 'client', 'service_contract.account=client.id');
         const fields = {
             id: 'service_contract.id',
             contractRef: 'service_contract.contract_ref',
             createdBy: 'service_contract.created_by',
             contractName: 'service_contract.contract_name',
             status: 'service_contract.status',
-            account: 'service_contract.account',
+            account: 'client.name',
             contractValues: 'service_contract.contract_values',
             startDate: 'service_contract.start_date',
             endDate: 'service_contract.end_date',

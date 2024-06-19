@@ -8,6 +8,7 @@ import {
 } from '../myutils/my.utils';
 import { ClientSearchVo, ClientVo, FHClientSearchVo } from '../myvo/ClientVo';
 import { Client } from '../myentities';
+import { User } from '../myentities/User';
 import _ from 'lodash';
 
 export class ClientRepo {
@@ -74,7 +75,9 @@ export class ClientRepo {
   }
 
   async getClientAll(search: ClientSearchVo) {
+    //user
     const qb = getRepository(Client).createQueryBuilder('client');
+    qb.leftJoin(User, 'user', 'client.account_owner=user.id');
     const fields: Record<string, string> = {
       id: 'client.id',
       name: 'client.name',
@@ -83,7 +86,7 @@ export class ClientRepo {
       accountsType: 'client.accounts_type',
       description: 'client.description',
       type: 'client.type',
-      accountOwner: 'client.account_owner',
+      accountOwner: 'user.userName',
       regNumber: 'client.reg_number',
       industry: 'client.industry',
       phoneNumber: 'client.phone_number',

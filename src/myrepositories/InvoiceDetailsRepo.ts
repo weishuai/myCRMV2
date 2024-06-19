@@ -12,6 +12,7 @@ import {
   InvoiceDetailsVo,
 } from '../myvo/InvoiceDetailsVo';
 import { InvoiceDetails } from '../myentities';
+import { User } from '../myentities/User';
 
 export class InvoiceDetailsRepo {
   async create(accountTagVo: InvoiceDetailsVo) {
@@ -138,6 +139,8 @@ export class InvoiceDetailsRepo {
   async getinvoiceDetailsAll(search: InvoiceDetailsSearchVo) {
     const qb =
       getRepository(InvoiceDetails).createQueryBuilder('invoice_details');
+      qb.leftJoin(User, 'user', 'invoice_details.client_contact=user.id');
+      qb.leftJoin(User, 'user2', 'invoice_details.sales_person=user2.id');
     const fields: Record<string, string> = {
       id: 'invoice_details.id',
       linkedUotation: 'invoice_details.linked_uotation',
@@ -145,8 +148,8 @@ export class InvoiceDetailsRepo {
       invoiceStatus: 'invoice_details.invoice_status',
       invoiceName: 'invoice_details.invoice_name',
       account: 'invoice_details.account',
-      salesPerson: 'invoice_details.sales_person',
-      clientContact: 'invoice_details.client_contact',
+      salesPerson: 'user2.userName',
+      clientContact: 'user.userName',
       currency: 'invoice_details.currency',
       invoiceDate: 'invoice_details.invoice_date',
       dueDate: 'invoice_details.due_date',

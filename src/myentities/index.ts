@@ -14,7 +14,7 @@ export * from './DeliveryItem';
 export * from './DeliveryOrder';
 export * from './ExchangeRate';
 export * from './Feedback';
-export * from './Fhtest';
+export * from './fhtest';
 export * from './Industry';
 export * from './InvoiceDetails';
 export * from './InvoiceItem';

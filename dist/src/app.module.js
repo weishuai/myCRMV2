@@ -79,13 +79,69 @@ const WarrantyController_1 = require("./mycontrollers//WarrantyController");
 const WorkController_1 = require("./mycontrollers//WorkController");
 const WorkItemController_1 = require("./mycontrollers/WorkItemController");
 const WorkNoteController_1 = require("./mycontrollers/WorkNoteController");
-const fhcrm_table1_controller_1 = require("./mycontrollers/fhcrm_table1_controller");
+const accounting_voucher_controller_1 = require("./mycontrollers/accounting_voucher_controller");
+const accounting_voucher_list_controller_1 = require("./mycontrollers/accounting_voucher_list_controller");
+const bank_cash_controller_1 = require("./mycontrollers/bank_cash_controller");
+const batch_controller_1 = require("./mycontrollers/batch_controller");
+const inventory_controller_1 = require("./mycontrollers/inventory_controller");
+const inventory_list_controller_1 = require("./mycontrollers/inventory_list_controller");
+const mybom_controller_1 = require("./mycontrollers/mybom_controller");
+const mybom_product_controller_1 = require("./mycontrollers/mybom_product_controller");
+const mywork_center_controller_1 = require("./mycontrollers/mywork_center_controller");
+const mywork_controller_1 = require("./mycontrollers/mywork_controller");
+const storage_location_controller_1 = require("./mycontrollers/storage_location_controller");
+const store_move_controller_1 = require("./mycontrollers/store_move_controller");
+const store_move_list_controller_1 = require("./mycontrollers/store_move_list_controller");
+const warehouse_controller_1 = require("./mycontrollers/warehouse_controller");
+const stock_quant_controller_1 = require("./mycontrollers/stock_quant_controller");
+const stock_valuation_layer_controller_1 = require("./mycontrollers/stock_valuation_layer_controller");
+const stock_warehouse_orderpoint_controller_1 = require("./mycontrollers/stock_warehouse_orderpoint_controller");
+const fhfault_controller_1 = require("./mycontrollers/fhfault_controller");
+const fhinspection_controller_1 = require("./mycontrollers/fhinspection_controller");
+const fhmeasuring_controller_1 = require("./mycontrollers/fhmeasuring_controller");
+const fhreform_controller_1 = require("./mycontrollers/fhreform_controller");
+const fhrunning_controller_1 = require("./mycontrollers/fhrunning_controller");
+const fhservice_plan_controller_1 = require("./mycontrollers/fhservice_plan_controller");
+const fhservicetb_controller_1 = require("./mycontrollers/fhservicetb_controller");
+const fhtest_fht1_controller_1 = require("./mycontrollers/fhtest_fht1_controller");
+const hr_contract_controller_1 = require("./mycontrollers/hr_contract_controller");
+const procure_plan_controller_1 = require("./mycontrollers/procure_plan_controller");
+const procure_plan_list_controller_1 = require("./mycontrollers/procure_plan_list_controller");
+const procure_price_controller_1 = require("./mycontrollers/procure_price_controller");
+const quality_inspection_controller_1 = require("./mycontrollers/quality_inspection_controller");
+const quality_inspection_item_controller_1 = require("./mycontrollers/quality_inspection_item_controller");
+const returnorder_controller_1 = require("./mycontrollers/returnorder_controller");
+const sale_contract_controller_1 = require("./mycontrollers/sale_contract_controller");
+const selling_price_controller_1 = require("./mycontrollers/selling_price_controller");
+const selling_price_list_controller_1 = require("./mycontrollers/selling_price_list_controller");
+const tbaftersale_controller_1 = require("./mycontrollers/tbaftersale_controller");
+const tbmatching_controller_1 = require("./mycontrollers/tbmatching_controller");
+const tbmatchingline_controller_1 = require("./mycontrollers/tbmatchingline_controller");
+const tbpackag_controller_1 = require("./mycontrollers/tbpackag_controller");
+const tbreturnvisit_controller_1 = require("./mycontrollers/tbreturnvisit_controller");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [database_module_1.DatabaseModule],
         controllers: [
+            stock_quant_controller_1.StockQuantController,
+            stock_valuation_layer_controller_1.StockValuationLayerController,
+            stock_warehouse_orderpoint_controller_1.StockWarehouseOrderpointController,
+            accounting_voucher_controller_1.AccountingVoucherController,
+            accounting_voucher_list_controller_1.AccountingVoucherListController,
+            bank_cash_controller_1.BankCashController,
+            batch_controller_1.BatchController,
+            inventory_controller_1.InventoryController,
+            inventory_list_controller_1.InventoryListController,
+            mybom_controller_1.mybomController,
+            mybom_product_controller_1.myBomProductController,
+            mywork_center_controller_1.myWorkCenterController,
+            mywork_controller_1.myWorkController,
+            storage_location_controller_1.StoragelocationController,
+            store_move_controller_1.StoreMoveController,
+            store_move_list_controller_1.StoreMoveListController,
+            warehouse_controller_1.WarehouseController,
             app_controller_1.AppController,
             account_tag_controller_1.AccountTagController,
             FHUserController_1.FHUserController,
@@ -157,7 +213,31 @@ AppModule = __decorate([
             WorkController_1.WorkController,
             WorkItemController_1.WorkItemController,
             WorkNoteController_1.WorkNoteController,
-            fhcrm_table1_controller_1.FHcrmTable1Controller,
+            fhfault_controller_1.FhfaultController,
+            fhinspection_controller_1.FhinspectionController,
+            fhmeasuring_controller_1.FhmeasuringController,
+            fhreform_controller_1.FhreformController,
+            fhrunning_controller_1.FhrunningController,
+            fhservice_plan_controller_1.FhservicePlanController,
+            fhservicetb_controller_1.FhservicetbController,
+            FhtestController_1.FhtestController,
+            fhtest_fht1_controller_1.FhtestFht1Controller,
+            hr_contract_controller_1.HrContractController,
+            procure_plan_controller_1.ProcurePlanController,
+            procure_plan_list_controller_1.ProcurePlanListController,
+            procure_price_controller_1.ProcurePriceController,
+            quality_inspection_controller_1.QualityInspectionController,
+            quality_inspection_item_controller_1.QualitylnspectionItemController,
+            returnorder_controller_1.ReturnorderController,
+            sale_contract_controller_1.SaleContractController,
+            selling_price_controller_1.SellingPriceController,
+            selling_price_list_controller_1.SellingPriceListController,
+            store_move_list_controller_1.StoreMoveListController,
+            tbaftersale_controller_1.TbaftersaleController,
+            tbmatching_controller_1.TbmatchingController,
+            tbmatchingline_controller_1.TbmatchinglineController,
+            tbpackag_controller_1.TbpackagController,
+            tbreturnvisit_controller_1.TbreturnvisitController,
         ],
         providers: [app_service_1.AppService],
     })

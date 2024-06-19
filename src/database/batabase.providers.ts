@@ -15,7 +15,7 @@ import { DeliveryItem } from '../myentities/DeliveryItem';
 import { DeliveryOrder } from '../myentities/DeliveryOrder';
 import { ExchangeRate } from '../myentities/ExchangeRate';
 import { Feedback } from '../myentities/Feedback';
-import { Fhtest } from '../myentities/Fhtest';
+import { Fhtest } from '../myentities/fhtest'; 
 import { Industry } from '../myentities/Industry';
 import { InvoiceDetails } from '../myentities/InvoiceDetails';
 import { InvoiceItem } from '../myentities/InvoiceItem';
@@ -62,15 +62,79 @@ import { Work } from '../myentities/Work';
 import { WorkItem } from '../myentities/WorkItem';
 import { WorkNote } from '../myentities/WorkNote';
 import { FHcrmTable1 } from '../myentities/fhcrm_table1';
+
+
+import { AccountingVoucherList } from '../myentities/accounting_voucher_list';
+import { AccountingVoucher } from '../myentities/accounting_voucher';
+import { BankCash } from '../myentities/bank_cash';
+import { Batch } from '../myentities/batch';
+import { InventoryList } from '../myentities/inventory_list';
+import { Inventory } from '../myentities/inventory';
+import { myBomProduct } from '../myentities/mybom_product';
+import { mybom } from '../myentities/mybom';
+import { myWorkCenter } from '../myentities/mywork_center';
+import { myWork } from '../myentities/mywork';
+import { Storagelocation } from '../myentities/storage_location';
+import { StoreMoveList } from '../myentities/store_move_list';
+import { StoreMove } from '../myentities/store_move';
+import { Warehouse  } from '../myentities/warehouse';
+
+import { StockQuant } from '../myentities/stock_quant';
+import { StockValuationLayer  } from '../myentities/stock_valuation_layer';
+import { StockWarehouseOrderpoint  } from '../myentities/stock_warehouse_orderpoint';
+
+import { Fhfault } from '../myentities/fhfault';
+import { Fhinspection } from '../myentities/fhinspection';
+import { Fhmeasuring } from '../myentities/fhmeasuring';
+import { Fhreform } from '../myentities/fhreform';
+import { Fhrunning } from '../myentities/fhrunning';
+import { FhservicePlan } from '../myentities/fhservice_plan';
+import { Fhservicetb } from '../myentities/fhservicetb';
+import { FhtestFht1 } from '../myentities/fhtest_fht1';
+// import { Fhtest } from '../myentities/fhtest';
+import { HrContract } from '../myentities/hr_contract';
+import { ProcurePlanList } from '../myentities/procure_plan_list';
+import { ProcurePlan } from '../myentities/procure_plan';
+import { ProcurePrice } from '../myentities/procure_price';
+import { QualitylnspectionItem } from '../myentities/quality_inspection_item';
+import { QualityInspection } from '../myentities/quality_inspection';
+import { SaleContract } from '../myentities/sale_contract';
+import { SellingPriceList } from '../myentities/selling_price_list';
+import { SellingPrice } from '../myentities/selling_price';
+// import { StoreMoveList } from '../myentities/store_move_list';
+import { Tbaftersale } from '../myentities/tbaftersale';
+import { Tbmatching } from '../myentities/tbmatching';
+import { Tbmatchingline } from '../myentities/tbmatchingline';
+import { Tbpackag } from '../myentities/tbpackag';
+import { Tbreturnvisit } from '../myentities/tbreturnvisit';
+
 const options: ConnectionOptions = {
   type: 'postgres',
-  host: 'localhost',
-  port: 5433,
+  //host: '192.168.0.103',
+  host: '127.0.0.1',
+  port: 5432,
   username: 'openerp',
   password: 'openerp',
   database: 'crmwf',
   synchronize: false,
   entities: [
+    StockQuant,
+    StockValuationLayer,
+    StockWarehouseOrderpoint,
+    AccountingVoucherList,
+    AccountingVoucher,
+    BankCash,
+    Batch,
+    InventoryList,
+    Inventory,
+    myBomProduct,
+    mybom,
+    myWorkCenter,
+    myWork,
+    Storagelocation,
+    StoreMoveList,
+    StoreMove,
+    Warehouse,
     AccountTag,
     User,
     Activity,
@@ -134,6 +198,31 @@ const options: ConnectionOptions = {
     WorkItem,
     WorkNote,
     FHcrmTable1,
+    Fhfault,
+    Fhinspection,
+    Fhmeasuring,
+    Fhreform,
+    Fhrunning ,
+    FhservicePlan,
+    Fhservicetb,
+    FhtestFht1,
+    Fhtest,
+    HrContract,
+    ProcurePlanList,
+    ProcurePlan,
+    ProcurePrice,
+    QualitylnspectionItem,
+    QualityInspection,
+    SaleContract,
+    SellingPriceList,
+    SellingPrice,
+    StoreMoveList,
+    Tbaftersale,
+    Tbmatching,
+    Tbmatchingline,
+    Tbpackag,
+    Tbreturnvisit,
+  
   ],
 };
 createConnection(options).then(

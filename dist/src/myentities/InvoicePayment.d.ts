@@ -1,5 +1,6 @@
 export declare class InvoicePayment {
     id: string;
+    name: string | null;
     invoiceId: string | null;
     date: Date | null;
     method: string | null;

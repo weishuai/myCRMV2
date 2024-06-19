@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AccountTagSearchVo = exports.AccountTagVo = void 0;
-const searchVo_1 = require("../myutils/searchVo");
+const searchvo_1 = require("../myutils/searchvo");
 class AccountTagVo {
     constructor() {
         this.id = '';
@@ -16,7 +16,7 @@ class AccountTagVo {
     }
 }
 exports.AccountTagVo = AccountTagVo;
-class AccountTagSearchVo extends searchVo_1.SearchVo {
+class AccountTagSearchVo extends searchvo_1.SearchVo {
 }
 exports.AccountTagSearchVo = AccountTagSearchVo;
 //# sourceMappingURL=account.tgvo.js.map

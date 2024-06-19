@@ -4,4 +4,4 @@ exports.SearchVo = void 0;
 class SearchVo {
 }
 exports.SearchVo = SearchVo;
-//# sourceMappingURL=searchVo.js.map
+//# sourceMappingURL=searchvo.js.map

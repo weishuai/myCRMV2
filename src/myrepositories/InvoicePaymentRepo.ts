@@ -57,6 +57,7 @@ export class InvoicePaymentRepo {
       getRepository(InvoicePayment).createQueryBuilder('invoice_payment');
     const fields: Record<string, string> = {
       id: 'invoice_payment.id',
+      name: 'invoice_payment.name',
       photo: 'invoice_payment.photo',
       mid: 'invoice_payment.mid',
       invoiceId: 'invoice_payment.invoice_id',
@@ -84,6 +85,7 @@ export class InvoicePaymentRepo {
       getRepository(InvoicePayment).createQueryBuilder('invoice_payment');
     const fields: Record<string, string> = {
       id: 'invoice_payment.id',
+      name: 'invoice_payment.name',
       photo: 'invoice_payment.photo',
       mid: 'invoice_payment.mid',
       invoiceId: 'invoice_payment.invoice_id',
@@ -100,12 +102,13 @@ export class InvoicePaymentRepo {
       updatedUid: 'invoice_payment.updated_uid',
     };
     selectFields(qb, fields);
-    qb.where("invoice_payment.isactived='0'");
-    multiSearch(
-      qb,
-      ['invoice_payment.invoice_id', 'invoice_payment.remark'],
-      search.search,
-    );
+    // qb.where("invoice_payment.isactived='0'");
+    qb.where("invoice_payment.isactived='0' and invoice_payment.mid='"+search.mid+"'");
+    // multiSearch(
+    //   qb,
+    //   ['invoice_payment.invoice_id', 'invoice_payment.remark'],
+    //   search.search,
+    // );
     qb.orderBy('invoice_payment.created_at', 'DESC');
     const count = await qb.getCount();
     const { skip, take } = skipAndTake(count, search);
@@ -118,6 +121,7 @@ export class InvoicePaymentRepo {
       getRepository(InvoicePayment).createQueryBuilder('invoice_payment');
     const fields: Record<string, string> = {
       id: 'invoice_payment.id',
+      name: 'invoice_payment.name',
       photo: 'invoice_payment.photo',
       mid: 'invoice_payment.mid',
       invoiceId: 'invoice_payment.invoice_id',
@@ -145,6 +149,7 @@ export class InvoicePaymentRepo {
       getRepository(InvoicePayment).createQueryBuilder('invoice_payment');
     const fields: Record<string, string> = {
       id: 'invoice_payment.id',
+      name: 'invoice_payment.name',
       mid: 'invoice_payment.mid',
       photo: 'invoice_payment.photo',
       invoiceId: 'invoice_payment.invoice_id',

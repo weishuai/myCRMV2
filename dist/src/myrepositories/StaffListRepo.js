@@ -26,6 +26,8 @@ class StaffListRepo {
         const fields = {
             id: 'staff_list.id',
             fullName: 'staff_list.full_name',
+            name: 'staff_list.name',
+            description: 'staff_list.description',
             contactNo: 'staff_list.contact_no',
             email: 'staff_list.email',
             role: 'staff_list.role',
@@ -49,6 +51,8 @@ class StaffListRepo {
         const qb = (0, typeorm_1.getRepository)(myentities_1.StaffList).createQueryBuilder('staff_list');
         const fields = {
             id: 'staff_list.id',
+            name: 'staff_list.name',
+            description: 'staff_list.description',
             fullName: 'staff_list.full_name',
             contactNo: 'staff_list.contact_no',
             email: 'staff_list.email',
@@ -76,6 +80,8 @@ class StaffListRepo {
         const qb = (0, typeorm_1.getRepository)(myentities_1.StaffList).createQueryBuilder('staff_list');
         const fields = {
             id: 'staff_list.id',
+            name: 'staff_list.name',
+            description: 'staff_list.description',
             fullName: 'staff_list.full_name',
             contactNo: 'staff_list.contact_no',
             email: 'staff_list.email',
@@ -99,6 +105,8 @@ class StaffListRepo {
         const qb = (0, typeorm_1.getRepository)(myentities_1.StaffList).createQueryBuilder('staff_list');
         const fields = {
             id: 'staff_list.id',
+            name: 'staff_list.name',
+            description: 'staff_list.description',
             fullName: 'staff_list.full_name',
             contactNo: 'staff_list.contact_no',
             email: 'staff_list.email',

@@ -89,8 +89,11 @@ class InvoiceItemRepo {
             updatedUid: 'invoice_item.updated_uid',
         };
         (0, my_utils_1.selectFields)(qb, fields);
-        qb.where("invoice_item.isactived='0'");
-        (0, my_utils_1.multiSearch)(qb, ['invoice_item.name', 'invoice_item.remark'], search.search);
+        console.info('search.mid:' + search.mid);
+        qb.where("invoice_item.isactived='0' and invoice_item.mid='" + search.mid + "'");
+        if (search.search != "") {
+            (0, my_utils_1.multiSearch)(qb, ['invoice_item.name'], search.search);
+        }
         qb.orderBy('invoice_item.created_at', 'DESC');
         const count = await qb.getCount();
         const { skip, take } = (0, pagination_1.skipAndTake)(count, search);

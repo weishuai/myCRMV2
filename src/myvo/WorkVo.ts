@@ -1,4 +1,4 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 
 export class WorkVo {
   id: string;
@@ -19,9 +19,9 @@ export class WorkVo {
 
   contact: string;
 
-  workInstructions: string;
+  workInstructions: string[];
 
-  assignTo: string;
+  assignTo: string[];
 
   remark: string;
 

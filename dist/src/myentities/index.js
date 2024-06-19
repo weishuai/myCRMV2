@@ -24,7 +24,7 @@ __exportStar(require("./DeliveryItem"), exports);
 __exportStar(require("./DeliveryOrder"), exports);
 __exportStar(require("./ExchangeRate"), exports);
 __exportStar(require("./Feedback"), exports);
-__exportStar(require("./Fhtest"), exports);
+__exportStar(require("./fhtest"), exports);
 __exportStar(require("./Industry"), exports);
 __exportStar(require("./InvoiceDetails"), exports);
 __exportStar(require("./InvoiceItem"), exports);

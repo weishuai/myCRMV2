@@ -22,6 +22,14 @@ __decorate([
     __metadata("design:type", String)
 ], Job.prototype, "title", void 0);
 __decorate([
+    (0, typeorm_1.Column)('varchar', { name: 'name', nullable: true, length: 255 }),
+    __metadata("design:type", String)
+], Job.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)('varchar', { name: 'description', nullable: true, length: 255 }),
+    __metadata("design:type", String)
+], Job.prototype, "description", void 0);
+__decorate([
     (0, typeorm_1.Column)('varchar', { name: 'wi_type', nullable: true, length: 255 }),
     __metadata("design:type", String)
 ], Job.prototype, "wiType", void 0);

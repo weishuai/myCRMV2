@@ -90,8 +90,11 @@ export class JobItemRepo {
       updatedUid: 'job_item.updated_uid',
     };
     selectFields(qb, fields);
-    qb.where("job_item.isactived='0'");
-    multiSearch(qb, ['job_item.title'], search.search);
+    // qb.where("job_item.isactived='0'");
+    // multiSearch(qb, ['job_item.title'], search.search);
+
+    qb.where("job_item.isactived='0' and job_item.mid='"+search.mid+"'");
+
     qb.orderBy('job_item.created_at', 'DESC');
     const count = await qb.getCount();
     const { skip, take } = skipAndTake(count, search);

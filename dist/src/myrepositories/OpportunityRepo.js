@@ -6,6 +6,7 @@ const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const lodash_1 = require("lodash");
 const myentities_1 = require("../myentities");
+const User_1 = require("../myentities/User");
 class OpportunityRepo {
     async create(accountTagVo) {
         return await (0, typeorm_1.getRepository)(myentities_1.Opportunity).insert(accountTagVo);
@@ -69,11 +70,12 @@ class OpportunityRepo {
     }
     async getopportunityAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.Opportunity).createQueryBuilder('opportunity');
+        qb.leftJoin(User_1.User, 'user', 'opportunity.opportunity_owner=user.id');
         const fields = {
             id: 'opportunity.id',
             opportunityName: 'opportunity.opportunity_name',
             account: 'opportunity.account',
-            opportunityOwner: 'opportunity.opportunity_owner',
+            opportunityOwner: 'user.userName',
             expiryDate: 'opportunity.expiry_date',
             stageName: 'opportunity.stage_name',
             probability: 'opportunity.probability',

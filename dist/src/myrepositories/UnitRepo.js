@@ -78,7 +78,7 @@ class UnitRepo {
         (0, my_utils_1.selectFields)(qb, fields);
         qb.where('1=1');
         const res = await qb.getRawMany();
-        return res;
+        return { 'fhok': res };
     }
     async getUnit(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.Unit).createQueryBuilder('unit');

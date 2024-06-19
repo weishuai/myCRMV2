@@ -29,11 +29,11 @@ export class Work {
   @Column('varchar', { name: 'contact', nullable: true, length: 255 })
   contact: string | null;
 
-  @Column('varchar', { name: 'work_instructions', nullable: true, length: 255 })
-  workInstructions: string | null;
+  @Column('varchar', { name: 'work_instructions', array: true,  nullable: true, length: 255 })
+  workInstructions: string[] | null;
 
-  @Column('text', { name: 'assign_to', nullable: true })
-  assignTo: string | null;
+  @Column('text', { name: 'assign_to',array: true, nullable: true })
+  assignTo: string[] | null;
 
   @Column('timestamp', { name: 'start_date', nullable: true })
   startDate: Date | null;

@@ -1,4 +1,4 @@
-import { SearchVo } from '../myutils/searchVo';
+import { SearchVo } from '../myutils/searchvo';
 
 import { AttachmentVo } from '../myvo/AttachmentVo';
 

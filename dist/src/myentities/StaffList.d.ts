@@ -1,5 +1,7 @@
 export declare class StaffList {
     id: string;
+    name: string | null;
+    description: string | null;
     fullName: string | null;
     contactNo: string | null;
     email: string | null;

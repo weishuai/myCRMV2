@@ -5,6 +5,7 @@ const pagination_1 = require("../myutils/pagination");
 const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
 const myentities_1 = require("../myentities");
+const User_1 = require("../myentities/User");
 const lodash_1 = require("lodash");
 class ClientRepo {
     async create(accountTagVo) {
@@ -69,6 +70,7 @@ class ClientRepo {
     }
     async getClientAll(search) {
         const qb = (0, typeorm_1.getRepository)(myentities_1.Client).createQueryBuilder('client');
+        qb.leftJoin(User_1.User, 'user', 'client.account_owner=user.id');
         const fields = {
             id: 'client.id',
             name: 'client.name',
@@ -77,7 +79,7 @@ class ClientRepo {
             accountsType: 'client.accounts_type',
             description: 'client.description',
             type: 'client.type',
-            accountOwner: 'client.account_owner',
+            accountOwner: 'user.userName',
             regNumber: 'client.reg_number',
             industry: 'client.industry',
             phoneNumber: 'client.phone_number',

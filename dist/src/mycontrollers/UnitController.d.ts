@@ -10,5 +10,7 @@ export declare class UnitController {
         raws: any[];
         count: number;
     }>;
-    getUnitAllView(): Promise<any[]>;
+    getUnitAllView(): Promise<{
+        fhok: any[];
+    }>;
 }

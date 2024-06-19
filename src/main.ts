@@ -12,8 +12,9 @@ import "reflect-metadata";
 import {createSocketServer} from "socket-controllers";
 import {FHMessageController} from "./mycontrollers/FHMessageControllerv1";
 import { TransformInterceptor } from './filter/transform.interceptor';
-//import { HttpExceptionFilter } from './filter/http-exception.filter';
-import { AllExceptionsFilter } from './filter/any-exception.filter';
+
+ //以下代码暂时注销
+// import { AllExceptionsFilter } from './filter/any-exception.filter';
 createSocketServer(3001, {
     controllers: [FHMessageController]
 });
@@ -39,20 +40,23 @@ async function bootstrap() {
   //app.setGlobalPrefix('nest-zero-to-one');
   // 过滤处理 HTTP 异常
   //app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalFilters(new AllExceptionsFilter());
+
+  // app.useGlobalFilters(new AllExceptionsFilter());
+  
   //Logger.info('weishuai');
   // DOESN'T WORK
-  app.enableCors();
-  // DOESN'T WORK
-  app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header(
-      'Access-Control-Allow-Methods',
-      'GET,PUT,POST,DELETE,PATCH,OPTIONS,UPGRADE,CONNECT,TRACE',
-    );
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
-    next();
-  });
+
+  //以下代码暂时注销
+  // app.enableCors();
+  // app.use((req, res, next) => {
+  //   res.header('Access-Control-Allow-Origin', '*');
+  //   res.header(
+  //     'Access-Control-Allow-Methods',
+  //     'GET,PUT,POST,DELETE,PATCH,OPTIONS,UPGRADE,CONNECT,TRACE',
+  //   );
+  //   res.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
+  //   next();
+  // });
 
   await app.listen(3009);
 }

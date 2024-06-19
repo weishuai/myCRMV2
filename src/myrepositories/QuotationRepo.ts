@@ -33,7 +33,7 @@ export class QuotationRepo {
     });
   }
   async getquotationsById(id: string) {
-    const qb = getRepository(QuotationRepo).createQueryBuilder('quotation');
+    const qb = getRepository(Quotation).createQueryBuilder('quotation');
     const fields: Record<string, string> = {
       id: 'quotation.id',
       clientId: 'quotation.client_id',
@@ -75,7 +75,7 @@ export class QuotationRepo {
   }
 
   async getquotationAll(search: QuotationSearchVo) {
-    const qb = getRepository(QuotationRepo).createQueryBuilder('quotation');
+    const qb = getRepository(Quotation).createQueryBuilder('quotation');
     const fields: Record<string, string> = {
       id: 'quotation.id',
       clientId: 'quotation.client_id',
@@ -111,7 +111,7 @@ export class QuotationRepo {
     };
     selectFields(qb, fields);
     qb.where("quotation.isactived='0'");
-    andWhereEqual(qb, 'quotation', 'status', 'ClosedWon');
+    // andWhereEqual(qb, 'quotation', 'status', 'ClosedWon');
     multiSearch(
       qb,
       ['quotation.quotation_name', 'quotation.remark'],
@@ -122,10 +122,11 @@ export class QuotationRepo {
     const { skip, take } = skipAndTake(count, search);
     const raws = await qb.offset(skip).limit(take).getRawMany();
     return {'raws':raws,'count':count};
+ 
   }
 
   async getquotationAllView() {
-    const qb = getRepository(QuotationRepo).createQueryBuilder('quotation');
+    const qb = getRepository(Quotation).createQueryBuilder('quotation');
     const fields: Record<string, string> = {
       id: 'quotation.id',
       clientId: 'quotation.client_id',
@@ -167,7 +168,7 @@ export class QuotationRepo {
   }
 
   async getquotation(userId: string, search: QuotationSearchVo) {
-    const qb = getRepository(QuotationRepo).createQueryBuilder('quotation');
+    const qb = getRepository(Quotation).createQueryBuilder('quotation');
     const fields: Record<string, string> = {
       id: 'quotation.id',
       clientId: 'quotation.client_id',
@@ -257,7 +258,7 @@ export class QuotationRepo {
   }
 
   async getquotationSQL(userId: string, search: FHQuotationSearchVo) {
-    const qb = getRepository(QuotationRepo).createQueryBuilder('quotation');
+    const qb = getRepository(Quotation).createQueryBuilder('quotation');
     const fields: Record<string, string> = {
       id: 'quotation.id',
       clientId: 'quotation.client_id',
@@ -341,7 +342,7 @@ export class QuotationRepo {
   }
 
   async getquotationSQLList(userId: string, search: QuotationSearchVo) {
-    const qb = getRepository(QuotationRepo).createQueryBuilder('quotation');
+    const qb = getRepository(Quotation).createQueryBuilder('quotation');
     const fields: Record<string, string> = {
       id: 'quotation.id',
       clientId: 'quotation.client_id',

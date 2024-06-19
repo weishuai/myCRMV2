@@ -8,6 +8,8 @@ export declare class UnitRepo {
         raws: any[];
         count: number;
     }>;
-    getUnitAllView(): Promise<any[]>;
+    getUnitAllView(): Promise<{
+        fhok: any[];
+    }>;
     getUnit(search: UnitSearchVo): Promise<any[]>;
 }

@@ -66,8 +66,7 @@ class WorkNoteRepo {
             updatedUid: 'work_note.updated_uid',
         };
         (0, my_utils_1.selectFields)(qb, fields);
-        qb.where("work_note.isactived='0'");
-        (0, my_utils_1.multiSearch)(qb, ['work_note.name', 'work_note.remark'], search.search);
+        qb.where("work_note.isactived='0' and work_note.mid='" + search.mid + "'");
         qb.orderBy('work_note.created_at', 'DESC');
         const count = await qb.getCount();
         const { skip, take } = (0, pagination_1.skipAndTake)(count, search);

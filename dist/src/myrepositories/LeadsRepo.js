@@ -4,25 +4,26 @@ exports.LeadsRepo = void 0;
 const pagination_1 = require("../myutils/pagination");
 const typeorm_1 = require("typeorm");
 const my_utils_1 = require("../myutils/my.utils");
-const myentities_1 = require("../myentities");
+const Leads_1 = require("../myentities/Leads");
+const Client_1 = require("../myentities/Client");
 class LeadsRepo {
     async create(accountTagVo) {
-        return await (0, typeorm_1.getRepository)(myentities_1.Leads).insert(accountTagVo);
+        return await (0, typeorm_1.getRepository)(Leads_1.Leads).insert(accountTagVo);
     }
     async update(Id, user_id, accountTagVo) {
         accountTagVo.updatedAt = new Date();
         accountTagVo.updatedUid = user_id;
         console.log(Id);
-        return await (0, typeorm_1.getRepository)(myentities_1.Leads).update(Id, accountTagVo);
+        return await (0, typeorm_1.getRepository)(Leads_1.Leads).update(Id, accountTagVo);
     }
     async remove(Ids) {
         console.log(Ids);
-        return await (0, typeorm_1.getRepository)(myentities_1.Leads).update(Ids[0], {
+        return await (0, typeorm_1.getRepository)(Leads_1.Leads).update(Ids[0], {
             isactived: '1',
         });
     }
     async getleadssById(id) {
-        const qb = (0, typeorm_1.getRepository)(myentities_1.Leads).createQueryBuilder('leads');
+        const qb = (0, typeorm_1.getRepository)(Leads_1.Leads).createQueryBuilder('leads');
         const fields = {
             id: 'leads.id',
             name: 'leads.name',
@@ -60,12 +61,13 @@ class LeadsRepo {
         return res;
     }
     async getLeadsAll(search) {
-        const qb = (0, typeorm_1.getRepository)(myentities_1.Leads).createQueryBuilder('leads');
+        const qb = (0, typeorm_1.getRepository)(Leads_1.Leads).createQueryBuilder('leads');
+        qb.leftJoin(Client_1.Client, 'client', 'leads.company = client.id');
         const fields = {
             id: 'leads.id',
             name: 'leads.name',
             jobTitle: 'leads.job_title',
-            company: 'leads.company',
+            company: 'client.name',
             industry: 'leads.industry',
             website: 'leads.website',
             email: 'leads.email',
@@ -101,7 +103,7 @@ class LeadsRepo {
         return { 'raws': raws, 'count': count };
     }
     async getLeadsAllView() {
-        const qb = (0, typeorm_1.getRepository)(myentities_1.Leads).createQueryBuilder('leads');
+        const qb = (0, typeorm_1.getRepository)(Leads_1.Leads).createQueryBuilder('leads');
         const fields = {
             id: 'leads.id',
             name: 'leads.name',
@@ -138,7 +140,7 @@ class LeadsRepo {
         return res;
     }
     async getleads(userId, search) {
-        const qb = (0, typeorm_1.getRepository)(myentities_1.Leads).createQueryBuilder('leads');
+        const qb = (0, typeorm_1.getRepository)(Leads_1.Leads).createQueryBuilder('leads');
         const fields = {
             id: 'leads.id',
             name: 'leads.name',

@@ -32,6 +32,8 @@ export class JobRepo {
     const fields: Record<string, string> = {
       id: 'job.id',
       title: 'job.title',
+      name: 'job.name',
+      description: 'job.description',
       wiType: 'job.wi_type',
       clients: 'job.clients',
       enabled: 'job.enabled',
@@ -54,6 +56,8 @@ export class JobRepo {
     const fields: Record<string, string> = {
       id: 'job.id',
       title: 'job.title',
+      name: 'job.name',
+      description: 'job.description',
       wiType: 'job.wi_type',
       clients: 'job.clients',
       enabled: 'job.enabled',
@@ -79,6 +83,8 @@ export class JobRepo {
     const fields: Record<string, string> = {
       id: 'job.id',
       title: 'job.title',
+      name: 'job.name',
+      description: 'job.description',
       wiType: 'job.wi_type',
       clients: 'job.clients',
       enabled: 'job.enabled',
@@ -101,6 +107,8 @@ export class JobRepo {
     const fields: Record<string, string> = {
       id: 'job.id',
       title: 'job.title',
+      name: 'job.name',
+      description: 'job.description',
       wiType: 'job.wi_type',
       clients: 'job.clients',
       enabled: 'job.enabled',

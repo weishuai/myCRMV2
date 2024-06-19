@@ -16,5 +16,7 @@ export declare class UnitService {
         raws: any[];
         count: number;
     }>;
-    getUnitAllView(): Promise<any[]>;
+    getUnitAllView(): Promise<{
+        fhok: any[];
+    }>;
 }
